@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">The Better Bar Tab</string>
+    <string name="menu_order">Order</string>
+    <string name="menu_tab">Tab</string>
+    <string name="menu_discover">Discover</string>
+    <string name="text_order">Order</string>
+    <string name="text_tab">Tab</string>
+    <string name="text_discover">Discover</string>
+    <string name="screen_unimplemented">This screen has not yet been implemented.</string>
+</resources>
