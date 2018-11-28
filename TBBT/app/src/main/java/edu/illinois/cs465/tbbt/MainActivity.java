@@ -1,5 +1,6 @@
 package edu.illinois.cs465.tbbt;
 
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -17,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
     final Fragment fragment_order = new OrderFragment();
     final Fragment fragment_tab = new TabFragment();
     final Fragment fragment_discover = new DiscoverFragment();
+    final Fragment fragment_settings = new SettingsFragment();
     final FragmentManager fm = getSupportFragmentManager();
-    Fragment active = fragment_order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +34,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        fm.beginTransaction().add(R.id.main_container, fragment_discover).hide(fragment_discover).commit();
-        fm.beginTransaction().add(R.id.main_container, fragment_tab).hide(fragment_tab).commit();
-        fm.beginTransaction().add(R.id.main_container,fragment_order).commit();
+        fm.beginTransaction().replace(R.id.main_container,fragment_order).commit();
     }
 
     // Bottom navigation bar fragment selection
@@ -46,18 +45,18 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_order:
-                    fm.beginTransaction().hide(active).show(fragment_order).commit();
-                    active = fragment_order;
+                    fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    fm.beginTransaction().replace(R.id.main_container, fragment_order).commit();
                     return true;
 
                 case R.id.navigation_tab:
-                    fm.beginTransaction().hide(active).show(fragment_tab).commit();
-                    active = fragment_tab;
+                    fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    fm.beginTransaction().replace(R.id.main_container, fragment_tab).commit();
                     return true;
 
                 case R.id.navigation_discover:
-                    fm.beginTransaction().hide(active).show(fragment_discover).commit();
-                    active = fragment_discover;
+                    fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    fm.beginTransaction().replace(R.id.main_container, fragment_discover).commit();
                     return true;
             }
             return false;
@@ -73,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_settings) {
-            Fragment fragment_settings = new SettingsFragment();
+        Fragment fragment_current = fm.findFragmentById(R.id.main_container);
+        if (item.getItemId() == R.id.action_settings && fragment_current != fragment_settings) {
             fm.beginTransaction().replace(R.id.main_container, fragment_settings).addToBackStack(null).commit();
             return true;
         }
