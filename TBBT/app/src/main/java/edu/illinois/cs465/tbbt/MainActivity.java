@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
+    final Fragment fragment_check_in = new CheckInFragment();
     final Fragment fragment_order = new OrderFragment();
     final Fragment fragment_tab = new TabFragment();
     final Fragment fragment_discover = new DiscoverFragment();
@@ -47,8 +48,9 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_order:
-                    fm.beginTransaction().hide(active).show(fragment_order).commit();
-                    active = fragment_order;
+                    fm.beginTransaction().hide(active).show(fragment_check_in).commit();
+                    //fm.beginTransaction().hide(active).show(fragment_order).commit();
+                    active = fragment_check_in;
                     return true;
 
                 case R.id.navigation_tab:
