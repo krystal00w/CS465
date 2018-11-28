@@ -7,4 +7,19 @@
     <string name="text_tab">Tab</string>
     <string name="text_discover">Discover</string>
     <string name="screen_unimplemented">This screen has not yet been implemented.</string>
+    <string name="legends_name">Legends</string>
+    <string name="murphys_name">Murphy\'s Pub</string>
+    <string name="lion_name">Red Lion</string>
+    <string name="legends_deal1">Happy Hour: 40% off all cocktails 4-5pm</string>
+    <string name="legends_deal2">2 large beers for $4</string>
+    <string name="lion_deal">Buy any 2 shots – get one free</string>
+    <string name="legends_hours">11am-2am Mo-Su</string>
+    <string name="legends_addr">522 E. Green st.</string>
+    <string name="murphys_hours">11am-2am Mo-Su</string>
+    <string name="murphys_addr">604 E. Green st.</string>
+    <string name="lion_hours">9pm-2am Mo-Su</string>
+    <string name="lion_addr">211 E. Green st.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
