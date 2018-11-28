@@ -15,7 +15,7 @@ import android.support.v7.widget.Toolbar;
 import edu.illinois.cs465.tbbt.Discover.DiscoverFragment;
 
 public class MainActivity extends AppCompatActivity {
-    final Fragment fragment_order = new OrderFragment();
+    final Fragment fragment_menu = new menuFragment();
     final Fragment fragment_tab = new TabFragment();
     final Fragment fragment_discover = new DiscoverFragment();
     final Fragment fragment_settings = new SettingsFragment();
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        fm.beginTransaction().replace(R.id.main_container,fragment_order).commit();
+        fm.beginTransaction().replace(R.id.main_container,fragment_menu).commit();
     }
 
     // Bottom navigation bar fragment selection
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_order:
                     fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                    fm.beginTransaction().replace(R.id.main_container, fragment_order).commit();
+                    fm.beginTransaction().replace(R.id.main_container, fragment_menu).commit();
                     return true;
 
                 case R.id.navigation_tab:

@@ -1,26 +1,35 @@
 package edu.illinois.cs465.tbbt;
 
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class OrderFragment extends Fragment {
 
-    public OrderFragment() {
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link menuFragment.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link menuFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class menuFragment extends Fragment {
+
+    public menuFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_order, container, false);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
         // Inflate the layout for this fragment
         final Button beer_button = view.findViewById(R.id.beer_button);
