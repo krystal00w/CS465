@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DiscoverFragment">
-
-    <TextView
+    tools:context=".MainActivity">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/text_discover" />
+        android:layout_height="match_parent">
+        <android.support.design.widget.TabLayout
+            android:gravity="top"
+            android:id="@+id/nearby_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
 
-</FrameLayout>
+            app:tabTextColor="@android:color/white"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabIndicatorHeight="3dp"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/nearby_tabs"
+            android:layout_above="@id/bottom_navigation"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
