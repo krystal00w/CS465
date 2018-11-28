@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void setActive(Fragment frag) {
+    /*public void setActive(Fragment frag) {
         active = frag;
-    }
+    }*/
 }

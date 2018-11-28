@@ -29,15 +29,15 @@ public class BarPreviewFragment extends Fragment {
         bar = getArguments().getString("bar");
         switch (bar) {
             case "legends":
-                //((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.legends_name);
+                ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.legends_name);
                 v = inflater.inflate(R.layout.legends_preview, container, false);
                 break;
             case "lion":
-                //((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.lion_name);
+                ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.lion_name);
                 v = inflater.inflate(R.layout.lion_preview, container, false);
                 break;
             case "murphys":
-                //((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.murphys_name);
+                ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.murphys_name);
                 v = inflater.inflate(R.layout.murphys_preview, container, false);
                 break;
             default:
