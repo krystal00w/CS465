@@ -4,15 +4,14 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
+
+import edu.illinois.cs465.tbbt.Discover.DiscoverFragment;
 
 public class MainActivity extends AppCompatActivity {
     final Fragment fragment_order = new OrderFragment();
@@ -82,5 +81,9 @@ public class MainActivity extends AppCompatActivity {
 
         // If we got here, the user's action was not recognized, invoke the superclass to handle it.
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setActive(Fragment frag) {
+        active = frag;
     }
 }
