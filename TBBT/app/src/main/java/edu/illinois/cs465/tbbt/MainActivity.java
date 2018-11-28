@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     final Fragment fragment_tab = new TabFragment();
     final Fragment fragment_discover = new DiscoverFragment();
     final Fragment fragment_settings = new SettingsFragment();
+    final Fragment fragment_empty_tab = new EmptyTabFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
     @Override
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.navigation_tab:
                     fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                    fm.beginTransaction().replace(R.id.main_container, fragment_tab).commit();
+                    fm.beginTransaction().replace(R.id.main_container, fragment_empty_tab).commit();
                     return true;
 
                 case R.id.navigation_discover:
