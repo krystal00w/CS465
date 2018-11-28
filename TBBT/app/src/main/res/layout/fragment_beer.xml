@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/order_frag"
-    tools:context=".OrderFragment">
+    tools:context=".beerFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -13,22 +12,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/beer_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/black"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="20dp"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:paddingLeft="45dp"
-            android:paddingRight="45dp"
-            android:text="Beer"/>
-
-        <Button
-            android:id="@+id/shots_button"
+            android:id="@+id/budweiser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -38,10 +22,9 @@
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            android:text="Shots"/>
-
+            android:text="Budweiser"/>
         <Button
-            android:id="@+id/cocktails_button"
+            android:id="@+id/heineken"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -51,7 +34,44 @@
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            android:text="Cocktails"/>
+            android:text="Heineken"/>
+        <Button
+            android:id="@+id/guiness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/black"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:text="Guiness"/>
+        <Button
+            android:id="@+id/blue_moon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/black"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:text="Blue Moon"/>
+        <Button
+            android:id="@+id/riggs_hefeweizen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/black"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:text="Rigg's Hefeweizen"/>
+
     </LinearLayout>
 
 </FrameLayout>

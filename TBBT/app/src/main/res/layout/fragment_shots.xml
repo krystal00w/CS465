@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/order_frag"
-    tools:context=".OrderFragment">
+    tools:context=".shotsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -13,22 +12,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/beer_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/black"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="20dp"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:paddingLeft="45dp"
-            android:paddingRight="45dp"
-            android:text="Beer"/>
-
-        <Button
-            android:id="@+id/shots_button"
+            android:id="@+id/jameson"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -38,10 +22,9 @@
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            android:text="Shots"/>
-
+            android:text="Jameson"/>
         <Button
-            android:id="@+id/cocktails_button"
+            android:id="@+id/captain_morgan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -51,7 +34,32 @@
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            android:text="Cocktails"/>
+            android:text="Captain Morgan"/>
+        <Button
+            android:id="@+id/new_amsterdam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/black"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:text="New Amsterdam"/>
+        <Button
+            android:id="@+id/western_son"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/black"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:text="Western Son"/>
+
     </LinearLayout>
 
 </FrameLayout>

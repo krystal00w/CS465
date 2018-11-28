@@ -2,11 +2,16 @@ package edu.illinois.cs465.tbbt;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class OrderFragment extends Fragment {
+
     public OrderFragment() {
         // Required empty public constructor
     }
@@ -14,7 +19,47 @@ public class OrderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_order, container, false);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_order, container, false);
+        final Button beer_button = view.findViewById(R.id.beer_button);
+        beer_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                beerFragment new_frag = new beerFragment();
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, new_frag);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+            }
+        });
+
+        final Button shots_button = view.findViewById(R.id.shots_button);
+        shots_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                shotsFragment new_frag = new shotsFragment();
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, new_frag);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        final Button cocktails_button = view.findViewById(R.id.cocktails_button);
+        cocktails_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                cocktailsFragment new_frag = new cocktailsFragment();
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, new_frag);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        return view;
     }
 }
