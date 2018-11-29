@@ -31,7 +31,6 @@ public class OrderFragment extends Fragment {
         final Button placeOrder = v.findViewById(R.id.submit_order);
         placeOrder.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                ((MainActivity)getActivity()).incStage();
                 // Code here executes on main thread after user presses button
                 menuFragment new_frag = new menuFragment();
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
