@@ -10,7 +10,6 @@ import android.view.View.OnClickListener;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-
 public class PickupFragment extends Fragment {
     public PickupFragment() {
         // Required empty public constructor
@@ -19,31 +18,21 @@ public class PickupFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pickup, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_pickup, container, false);
 
-    // On click of the pickup button in the Pick-Up screen, go back to TabFragment
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        Button showTabFragment=(Button)getView().findViewById(R.id.pickup);
-        showTabFragment.setOnClickListener(new OnClickListener() {
-
-            @Override
+        final Button pickup = view.findViewById(R.id.pickup);
+        pickup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                TabFragment tabFragment = new TabFragment();
-                fragmentTransaction.replace(R.id.tab, tabFragment);
-
+                // Code here executes on main thread after user presses button
+                TabFragment new_frag = new TabFragment();
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, new_frag);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
             }
         });
-
+        // Inflate the layout for this fragment
+        return view;
     }
 }
