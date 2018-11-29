@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.navigation_tab:
                     fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                    fm.beginTransaction().replace(R.id.main_container, fragment_empty_tab).commit();
+                    fm.beginTransaction().replace(R.id.main_container, fragment_tab).commit();
                     return true;
 
                 case R.id.navigation_discover:
