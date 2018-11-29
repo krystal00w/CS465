@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     final Fragment fragment_settings = new SettingsFragment();
     final Fragment fragment_empty_tab = new EmptyTabFragment();
     final FragmentManager fm = getSupportFragmentManager();
+    BottomNavigationView navigation = null;
 
     // Check in once only
     private boolean checkedIn = false;
@@ -31,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void setCheckedIn(boolean status) {
         checkedIn = status;
+        if (status == true){
+            stage = 0;
+        }
+        else {
+            stage = -1;
+            drinkOneName = "blah1";
+            drinkTwoName = "blah2";
+        }
         return;
     }
     private String drinkOneName = "blah1";
@@ -38,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean paid = false;
 
-    private int stage = 0;
+    private int stage = -1;
 
     public String getDrinkOneName() {
         return drinkOneName;
@@ -68,12 +77,16 @@ public class MainActivity extends AppCompatActivity {
         return;
     }
 
-    public void incStage2() {
-        stage = 4;
+    public void resetStage() {
+        stage = 0;
+        drinkOneName = "blah1";
+        drinkTwoName = "blah2";
         return;
     }
 
     public int getStage() { return stage; }
+
+    public BottomNavigationView getNavigation() { return navigation; }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Sets up the bottom navigation bar
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         toolbar.setTitle(R.string.text_order);

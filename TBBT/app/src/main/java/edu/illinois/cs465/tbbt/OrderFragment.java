@@ -1,6 +1,7 @@
 package edu.illinois.cs465.tbbt;
 
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -32,11 +33,13 @@ public class OrderFragment extends Fragment {
         placeOrder.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                menuFragment new_frag = new menuFragment();
+                /*menuFragment new_frag = new menuFragment();
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.main_container, new_frag);
                 fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                fragmentTransaction.commit();*/
+                BottomNavigationView navigation = ((MainActivity)getActivity()).getNavigation();
+                navigation.setSelectedItemId(R.id.navigation_tab);
 
             }
         });

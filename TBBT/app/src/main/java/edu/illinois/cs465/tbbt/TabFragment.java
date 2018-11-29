@@ -19,8 +19,24 @@ public class TabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = null;
-        if (((MainActivity)getActivity()).getStage() == 0 || ((MainActivity)getActivity()).getStage() == 4){
+        if (((MainActivity)getActivity()).getStage() == -1){
+            view = inflater.inflate(R.layout.fragment_not_checked_in, container, false);
+        }
+
+        if (((MainActivity)getActivity()).getStage() == 0){
             view = inflater.inflate(R.layout.fragment_empty_tab, container, false);
+            final Button close_tab = view.findViewById(R.id.close_tab);
+            close_tab.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    // Code here executes on main thread after user presses button
+                    ((MainActivity)getActivity()).setCheckedIn(false);
+                    TabFragment new_frag = new TabFragment();
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.main_container, new_frag);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+            });
         }
         else if (((MainActivity)getActivity()).getStage() == 1){
             view = inflater.inflate(R.layout.fragment_tab1, container, false);
@@ -50,7 +66,7 @@ public class TabFragment extends Fragment {
             pay_subtotal_button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     // Code here executes on main thread after user presses button
-                    ((MainActivity)getActivity()).incStage2();
+                    ((MainActivity)getActivity()).resetStage();
                     TabFragment new_frag = new TabFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.main_container, new_frag);
