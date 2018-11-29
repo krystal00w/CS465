@@ -177,7 +177,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:text="Pay Subtotal $6.98"
+                android:text="Pay Subtotal $5.98"
                 android:textSize="20dp"
                 android:background="@android:color/holo_green_dark"
                 android:textColor="@android:color/white" />
