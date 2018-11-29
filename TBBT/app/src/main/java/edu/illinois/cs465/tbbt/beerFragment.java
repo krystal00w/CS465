@@ -1,7 +1,5 @@
 package edu.illinois.cs465.tbbt;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -65,7 +63,7 @@ public class beerFragment extends Fragment {
     }
 
     private void passDrinkToOrder(String drink_name) {
-        ((MainActivity) getActivity()).setDrinkName(drink_name);
+        ((MainActivity) getActivity()).setDrinkOneName(drink_name);
         OrderFragment new_frag = new OrderFragment();
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_container, new_frag);

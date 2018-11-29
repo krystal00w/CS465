@@ -10,15 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link menuFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link menuFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class menuFragment extends Fragment {
 
     public menuFragment() {

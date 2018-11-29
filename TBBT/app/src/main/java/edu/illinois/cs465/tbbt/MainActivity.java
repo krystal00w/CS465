@@ -1,6 +1,5 @@
 package edu.illinois.cs465.tbbt;
 
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -23,16 +22,32 @@ public class MainActivity extends AppCompatActivity {
     final Fragment fragment_empty_tab = new EmptyTabFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
-    private String drinkName;
+    private String drinkOneName;
+    private String drinkTwoName;
 
-    public String getDrinkName() {
-        return drinkName;
+    private int numberOfDrinks = 0;
+
+    public String getDrinkOneName() {
+        return drinkOneName;
     }
 
-    public void setDrinkName(String new_name) {
-        drinkName = new_name;
+    public void setDrinkOneName(String new_name) {
+        drinkOneName = new_name;
+        numberOfDrinks = 1;
         return;
     }
+
+    public String getDrinkTwoName() {
+        return drinkTwoName;
+    }
+
+    public void setDrinkTwoName(String new_name) {
+        drinkTwoName = new_name;
+        numberOfDrinks = 2;
+        return;
+    }
+
+    public int getNumberOfDrinks() { return numberOfDrinks; }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
