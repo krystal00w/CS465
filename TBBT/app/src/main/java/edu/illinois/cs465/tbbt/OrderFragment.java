@@ -33,6 +33,12 @@ public class OrderFragment extends Fragment {
         placeOrder.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
+                if (((MainActivity)getActivity()).getStage() == 0){
+                    ((MainActivity)getActivity()).buyDrinkOne();
+                }
+                else if (((MainActivity)getActivity()).getStage() == 1){
+                    ((MainActivity)getActivity()).buyDrinkTwo();
+                }
                 BottomNavigationView navigation = ((MainActivity)getActivity()).getNavigation();
                 navigation.setSelectedItemId(R.id.navigation_tab);
 

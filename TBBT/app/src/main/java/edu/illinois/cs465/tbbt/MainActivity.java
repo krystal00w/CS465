@@ -58,8 +58,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void setDrinkOneName(String new_name) {
         drinkOneName = new_name;
-        stage = 1;
         return;
+    }
+
+    public void buyDrinkOne() {
+        stage = 1;
     }
 
     public String getDrinkTwoName() {
@@ -68,8 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void setDrinkTwoName(String new_name) {
         drinkTwoName = new_name;
-        stage = 2;
         return;
+    }
+
+    public void buyDrinkTwo() {
+        stage = 2;
     }
 
     public void incStage() {
