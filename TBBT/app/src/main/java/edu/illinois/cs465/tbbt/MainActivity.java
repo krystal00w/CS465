@@ -1,6 +1,5 @@
 package edu.illinois.cs465.tbbt;
 
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -15,11 +14,55 @@ import android.support.v7.widget.Toolbar;
 import edu.illinois.cs465.tbbt.Discover.DiscoverFragment;
 
 public class MainActivity extends AppCompatActivity {
+    final Fragment fragment_check_in = new CheckInFragment();
     final Fragment fragment_order = new OrderFragment();
     final Fragment fragment_tab = new TabFragment();
     final Fragment fragment_discover = new DiscoverFragment();
     final Fragment fragment_settings = new SettingsFragment();
+    final Fragment fragment_empty_tab = new EmptyTabFragment();
     final FragmentManager fm = getSupportFragmentManager();
+
+    private String drinkOneName = "blah1";
+    private String drinkTwoName = "blah2";
+
+    private boolean paid = false;
+
+    private int stage = 0;
+
+    public String getDrinkOneName() {
+        return drinkOneName;
+    }
+
+    public void setPaid() { paid = true; }
+    public boolean getPaid() { return paid; }
+
+    public void setDrinkOneName(String new_name) {
+        drinkOneName = new_name;
+        stage = 1;
+        return;
+    }
+
+    public String getDrinkTwoName() {
+        return drinkTwoName;
+    }
+
+    public void setDrinkTwoName(String new_name) {
+        drinkTwoName = new_name;
+        stage = 2;
+        return;
+    }
+
+    public void incStage() {
+        stage = 3;
+        return;
+    }
+
+    public void incStage2() {
+        stage = 4;
+        return;
+    }
+
+    public int getStage() { return stage; }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +77,9 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        fm.beginTransaction().replace(R.id.main_container,fragment_order).commit();
+        toolbar.setTitle(R.string.text_order);
+
+        fm.beginTransaction().replace(R.id.main_container,fragment_check_in).commit();
     }
 
     // Bottom navigation bar fragment selection
@@ -46,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_order:
                     fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                    fm.beginTransaction().replace(R.id.main_container, fragment_order).commit();
+                    fm.beginTransaction().replace(R.id.main_container, fragment_check_in).commit();
                     return true;
 
                 case R.id.navigation_tab:

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pickup_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Show this QR to a bartender in the pick-up area to pick up your drink."
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+
+    <ImageView
+        android:id="@+id/imageQR"
+        android:layout_width="240dp"
+        android:layout_height="265dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/qrcode" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        />
+
+    <!--<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drinks Ready:"
+
+        android:textSize="18dp"
+        android:textStyle="bold"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:paddingBottom="20dp"
+        android:text="blank_string_for_ready"
+        />-->
+
+    <Button
+        android:id="@+id/pickup"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:textSize="19dp"
+        android:background="@drawable/rounded_button"
+        android:text="Pick Up"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false" />
+
+
+</LinearLayout>
