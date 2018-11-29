@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".confirm_order">
+
+    <!-- TODO: Update blank fragment layout -->
 
 
     <LinearLayout
@@ -17,65 +20,40 @@
             android:autoSizeTextType="uniform"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingBottom="0dp"
+            android:paddingBottom="20dp"
             android:text="Order"
             android:textColor="@android:color/black"
             android:textSize="30sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
-            android:paddingLeft="10dp"
-            android:paddingTop="20dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="0dp"
-            android:text="Tito's"
-            android:textColor="@android:color/black"
-            android:textSize="30sp" />
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
-            android:drawablePadding="20dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingBottom="0dp"
-            android:text="Quantity"
-            android:textColor="@android:color/black"
-            android:textSize="30sp" />
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Size"
+            android:text="1 x Shot of Tito's"
             android:textColor="@android:color/black"
             android:textSize="28sp"
+            android:paddingBottom="60dp"
             />
 
-        <android.support.v7.widget.AppCompatRadioButton
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="single"
-            android:textSize="24sp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Total"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            android:paddingBottom="60dp"
             />
-
-        <android.support.v7.widget.AppCompatRadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="double"
-            android:textSize="24sp"
-            />
-
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autoSizeTextType="uniform"
-            android:drawablePadding="20dp"
-            android:paddingBottom="20dp"
+            android:paddingBottom="60dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:editable="false"
@@ -86,13 +64,26 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Place Order: $2.00"
+            android:text="Confirm"
             android:textColor="@android:color/white"
             android:background="@android:color/holo_green_dark"
+            android:textSize="30sp"
+            />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_red_light"
+            android:textSize="30sp"
             />
 
 
+
     </LinearLayout>
+
+
+
 
 </FrameLayout>

@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:textSize="18dp"
         android:paddingBottom="20dp"
-        android:text="@string/blank_string_for_ready"
+        android:text="blank_string_for_ready"
         />
 
     <Button

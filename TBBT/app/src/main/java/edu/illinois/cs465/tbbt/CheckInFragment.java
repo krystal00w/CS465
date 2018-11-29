@@ -35,7 +35,7 @@ public class CheckInFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
                 OrderFragment orderFrag = new OrderFragment();
-                fragmentTransaction.replace(R.id.checkin, orderFrag);
+                fragmentTransaction.replace(R.id.main_container, orderFrag);
 
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
