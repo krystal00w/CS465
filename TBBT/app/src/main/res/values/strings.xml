@@ -7,6 +7,7 @@
     <string name="text_tab">Tab</string>
     <string name="text_discover">Discover</string>
     <string name="screen_unimplemented">This screen has not yet been implemented.</string>
+
     <string name="legends_name">Legends</string>
     <string name="murphys_name">Murphy\'s Pub</string>
     <string name="lion_name">Red Lion</string>
@@ -20,6 +21,6 @@
     <string name="lion_hours">9pm-2am Mo-Su</string>
     <string name="lion_addr">211 E. Green st.</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
