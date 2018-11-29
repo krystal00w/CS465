@@ -12,17 +12,6 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="20dp"
-            android:text="Order"
-            android:textColor="@android:color/black"
-            android:textSize="30sp" />
-
-        <TextView
             android:id="@+id/drink_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
