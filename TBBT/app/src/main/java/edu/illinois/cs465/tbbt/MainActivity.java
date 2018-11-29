@@ -23,6 +23,17 @@ public class MainActivity extends AppCompatActivity {
     final Fragment fragment_empty_tab = new EmptyTabFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
+    private String drinkName;
+
+    public String getDrinkName() {
+        return drinkName;
+    }
+
+    public void setDrinkName(String new_name) {
+        drinkName = new_name;
+        return;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
