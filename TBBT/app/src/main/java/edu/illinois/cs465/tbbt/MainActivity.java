@@ -23,6 +23,18 @@ public class MainActivity extends AppCompatActivity {
     final Fragment fragment_empty_tab = new EmptyTabFragment();
     final FragmentManager fm = getSupportFragmentManager();
 
+    // Check in once only
+    private boolean checkedIn = false;
+
+    public boolean getCheckedIn() {
+        return checkedIn;
+    }
+
+    public void setCheckedIn(boolean status) {
+        checkedIn = status;
+        return;
+    }
+
     private String drinkOneName;
     private String drinkTwoName;
 
@@ -77,7 +89,10 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_order:
                     fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                    fm.beginTransaction().replace(R.id.main_container, fragment_check_in).commit();
+                    if (!checkedIn)
+                        fm.beginTransaction().replace(R.id.main_container, fragment_check_in).commit();
+                    else
+                        fm.beginTransaction().replace(R.id.main_container, new menuFragment()).commit();
                     return true;
 
                 case R.id.navigation_tab:
