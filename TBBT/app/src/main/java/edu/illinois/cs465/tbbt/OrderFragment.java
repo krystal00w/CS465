@@ -18,10 +18,10 @@ public class OrderFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_order, container, false);
         TextView drink_title = v.findViewById(R.id.drink_title);
-        if (((MainActivity)getActivity()).getNumberOfDrinks() == 1) {
+        if (((MainActivity)getActivity()).getStage() == 1) {
             drink_title.setText(((MainActivity)getActivity()).getDrinkOneName());
         }
-        else if (((MainActivity)getActivity()).getNumberOfDrinks() == 2) {
+        else if (((MainActivity)getActivity()).getStage() == 2) {
             drink_title.setText(((MainActivity)getActivity()).getDrinkTwoName());
         }
         return v;

@@ -53,6 +53,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/rdy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="40dp"
@@ -108,6 +109,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/in_prog"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
@@ -170,15 +172,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/pay_subtotal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:text="Pay Subtotal $6.98"
-                android:textSize="20dp"
-                android:background="@android:color/holo_green_dark"
-                android:textColor="@android:color/white" />
         </LinearLayout>
     </LinearLayout>
 
