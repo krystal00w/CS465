@@ -111,7 +111,7 @@
             android:id="@+id/submit_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Place Order: $2.00"
+            android:text="Place Order: $2.99"
             android:textColor="@android:color/white"
             android:background="@android:color/holo_green_dark"
             android:textSize="30sp"
