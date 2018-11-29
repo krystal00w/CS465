@@ -2,10 +2,12 @@ package edu.illinois.cs465.tbbt;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class OrderFragment extends Fragment {
@@ -25,6 +27,21 @@ public class OrderFragment extends Fragment {
         else if (((MainActivity)getActivity()).getStage() == 2) {
             drink_title.setText(((MainActivity)getActivity()).getDrinkTwoName());
         }
+
+        final Button placeOrder = v.findViewById(R.id.submit_order);
+        placeOrder.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                ((MainActivity)getActivity()).incStage();
+                // Code here executes on main thread after user presses button
+                menuFragment new_frag = new menuFragment();
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, new_frag);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+            }
+        });
+
         return v;
     }
 
