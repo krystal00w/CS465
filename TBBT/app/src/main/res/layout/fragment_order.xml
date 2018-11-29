@@ -106,7 +106,7 @@
             android:paddingRight="10dp"
             android:textColor="@android:color/darker_gray"
             android:textSize="30sp"
-            android:text="neat/on the rocks"/>
+            android:hint="neat/on the rocks"/>
 
         <Button
             android:id="@+id/submit_order"
@@ -116,12 +116,6 @@
             android:textColor="@android:color/white"
             android:background="@android:color/holo_green_dark"
             android:textSize="30sp"/>
-        <TextView
-            android:id="@+id/test_text"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textSize="20sp"
-            android:text="order goes here"/>
 
 
     </LinearLayout>
