@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+import java.util.ArrayList;
 
 import edu.illinois.cs465.tbbt.Discover.DiscoverFragment;
 
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.navigation_tab:
                     fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                    fm.beginTransaction().replace(R.id.main_container, fragment_tab).commit();
+                    fm.beginTransaction().replace(R.id.main_container, fragment_empty_tab).commit();
                     return true;
 
                 case R.id.navigation_discover:

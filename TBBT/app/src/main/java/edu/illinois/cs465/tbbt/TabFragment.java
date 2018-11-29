@@ -30,7 +30,18 @@ public class TabFragment extends Fragment {
                 fragmentTransaction.replace(R.id.main_container, new_frag);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+            }
+        });
 
+        final Button pay_subtotal_button = view.findViewById(R.id.pay_subtotal);
+        pay_subtotal_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                EmptyTabFragment new_frag = new EmptyTabFragment();
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, new_frag);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
         // Inflate the layout for this fragment
