@@ -31,7 +31,7 @@
         android:text=""
         />
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Drinks Ready:"
@@ -47,7 +47,7 @@
         android:textSize="18dp"
         android:paddingBottom="20dp"
         android:text="blank_string_for_ready"
-        />
+        />-->
 
     <Button
         android:id="@+id/pickup"

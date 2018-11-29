@@ -48,7 +48,12 @@ public class cocktailsFragment extends Fragment {
     }
 
     private void passDrinkToOrder(String drink_name) {
-        ((MainActivity) getActivity()).setDrinkOneName(drink_name);
+        if (((MainActivity) getActivity()).getStage() == 0){
+            ((MainActivity) getActivity()).setDrinkOneName(drink_name);
+        }
+        else if (((MainActivity) getActivity()).getStage() == 1){
+            ((MainActivity) getActivity()).setDrinkTwoName(drink_name);
+        }
         OrderFragment new_frag = new OrderFragment();
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_container, new_frag);

@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
-import java.util.ArrayList;
 
 import edu.illinois.cs465.tbbt.Discover.DiscoverFragment;
 
@@ -34,19 +33,23 @@ public class MainActivity extends AppCompatActivity {
         checkedIn = status;
         return;
     }
+    private String drinkOneName = "blah1";
+    private String drinkTwoName = "blah2";
 
-    private String drinkOneName;
-    private String drinkTwoName;
+    private boolean paid = false;
 
-    private int numberOfDrinks = 0;
+    private int stage = 0;
 
     public String getDrinkOneName() {
         return drinkOneName;
     }
 
+    public void setPaid() { paid = true; }
+    public boolean getPaid() { return paid; }
+
     public void setDrinkOneName(String new_name) {
         drinkOneName = new_name;
-        numberOfDrinks = 1;
+        stage = 1;
         return;
     }
 
@@ -56,11 +59,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void setDrinkTwoName(String new_name) {
         drinkTwoName = new_name;
-        numberOfDrinks = 2;
+        stage = 2;
         return;
     }
 
-    public int getNumberOfDrinks() { return numberOfDrinks; }
+    public void incStage() {
+        stage = 3;
+        return;
+    }
+
+    public void incStage2() {
+        stage = 4;
+        return;
+    }
+
+    public int getStage() { return stage; }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.navigation_tab:
                     fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                    fm.beginTransaction().replace(R.id.main_container, fragment_empty_tab).commit();
+                    fm.beginTransaction().replace(R.id.main_container, fragment_tab).commit();
                     return true;
 
                 case R.id.navigation_discover:
