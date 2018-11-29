@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textAlignment="center"
-        android:text="Show this QR code to a bartender or security along with your ID to open a tab. You can do this when you enter the bar."
+        android:text="Show this QR code to security along with your ID to open a tab. You can do this when you enter the bar."
         android:textSize="16sp"/>
 
     <Button
