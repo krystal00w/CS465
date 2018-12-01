@@ -5,51 +5,38 @@
     android:layout_height="match_parent"
     tools:context=".menuFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <Button
+            style="@style/ButtonStyleMenu"
+            android:id="@+id/deals_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deals"/>
+
+        <Button
+            style="@style/ButtonStyleMenu"
             android:id="@+id/beer_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/black"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="20dp"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:paddingLeft="45dp"
-            android:paddingRight="45dp"
+            android:padding="15dp"
             android:text="Beer"/>
 
         <Button
+            style="@style/ButtonStyleMenu"
             android:id="@+id/shots_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="5dp"
-            android:background="@android:color/black"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
             android:text="Shots"/>
 
         <Button
+            style="@style/ButtonStyleMenu"
             android:id="@+id/cocktails_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="5dp"
-            android:background="@android:color/black"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
             android:text="Cocktails"/>
     </LinearLayout>
 
