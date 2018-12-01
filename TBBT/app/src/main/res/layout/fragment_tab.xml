@@ -43,6 +43,7 @@
                         android:textSize="20sp"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
+                        android:visibility="gone"
                         style="@style/Widget.AppCompat.Button.Colored"/>
                 </LinearLayout>
             </LinearLayout>
@@ -195,7 +196,8 @@
                 android:background="@android:color/holo_green_dark"
                 android:text="Pay Subtotal $8.97"
                 android:textColor="@android:color/white"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:visibility="gone"/>
         </LinearLayout>
     </LinearLayout>
 
