@@ -54,21 +54,21 @@ public class TabFragment extends Fragment {
                         fragmentTransaction.commit();
                     }
                 });
-                if (((MainActivity)getActivity()).getReady().size() == 0 && ((MainActivity)getActivity()).getBeing_made().size() == 0){
-                    final Button pay_subtotal_button = view.findViewById(R.id.pay_subtotal);
-                    pay_subtotal_button.setVisibility(View.VISIBLE);
-                    pay_subtotal_button.setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            // Code here executes on main thread after user presses button
-                            ((MainActivity)getActivity()).emptyTab();
-                            TabFragment new_frag = new TabFragment();
-                            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.main_container, new_frag);
-                            fragmentTransaction.addToBackStack(null);
-                            fragmentTransaction.commit();
-                        }
-                    });
-                }
+            }
+            else if (((MainActivity)getActivity()).getReady().size() == 0 && ((MainActivity)getActivity()).getBeing_made().size() == 0){
+                final Button pay_subtotal_button = view.findViewById(R.id.pay_subtotal);
+                pay_subtotal_button.setVisibility(View.VISIBLE);
+                pay_subtotal_button.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        // Code here executes on main thread after user presses button
+                        ((MainActivity)getActivity()).emptyTab();
+                        TabFragment new_frag = new TabFragment();
+                        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new_frag);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+                    }
+                });
             }
         }
 
