@@ -19,13 +19,14 @@ public class TabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = null;
-        if (((MainActivity)getActivity()).getStage() == -1){
+        if (!((MainActivity)getActivity()).getCheckedIn()){
             view = inflater.inflate(R.layout.fragment_not_checked_in, container, false);
         }
 
-        if (((MainActivity)getActivity()).getStage() == 0){
+        else if (((MainActivity)getActivity()).getReady().size() == 0 && ((MainActivity)getActivity()).getBeing_made().size() == 0 && ((MainActivity)getActivity()).getPicked_up().size() == 0){
             view = inflater.inflate(R.layout.fragment_empty_tab, container, false);
             final Button close_tab = view.findViewById(R.id.close_tab);
+            close_tab.setVisibility(View.VISIBLE);
             close_tab.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     // Code here executes on main thread after user presses button
@@ -38,43 +39,39 @@ public class TabFragment extends Fragment {
                 }
             });
         }
-        else if (((MainActivity)getActivity()).getStage() == 1){
-            view = inflater.inflate(R.layout.fragment_tab1, container, false);
-            ((TextView)view.findViewById(R.id.in_prog)).setText(((MainActivity)getActivity()).getDrinkOneName());
+        else {
+            view = inflater.inflate(R.layout.fragment_tab, container, false);
+            if (((MainActivity)getActivity()).getReady().size() > 0){
+                final Button pick_up_button = view.findViewById(R.id.pick_up_button);
+                pick_up_button.setVisibility(View.VISIBLE);
+                pick_up_button.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        // Code here executes on main thread after user presses button
+                        PickupFragment new_frag = new PickupFragment();
+                        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new_frag);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+                    }
+                });
+            }
+            else if (((MainActivity)getActivity()).getReady().size() == 0 && ((MainActivity)getActivity()).getBeing_made().size() == 0){
+                final Button pay_subtotal_button = view.findViewById(R.id.pay_subtotal);
+                pay_subtotal_button.setVisibility(View.VISIBLE);
+                pay_subtotal_button.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        // Code here executes on main thread after user presses button
+                        ((MainActivity)getActivity()).emptyTab();
+                        TabFragment new_frag = new TabFragment();
+                        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, new_frag);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+                    }
+                });
+            }
         }
-        else if (((MainActivity)getActivity()).getStage() == 2){
-            view = inflater.inflate(R.layout.fragment_tab2, container, false);
-            ((TextView)view.findViewById(R.id.rdy)).setText(((MainActivity)getActivity()).getDrinkOneName());
-            ((TextView)view.findViewById(R.id.in_prog)).setText(((MainActivity)getActivity()).getDrinkTwoName());
-            final Button pick_up_button = view.findViewById(R.id.pick_up_button);
-            pick_up_button.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    // Code here executes on main thread after user presses button
-                    PickupFragment new_frag = new PickupFragment();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.main_container, new_frag);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                }
-            });
-        }
-        else if (((MainActivity)getActivity()).getStage() == 3){
-            view = inflater.inflate(R.layout.fragment_tab3, container, false);
-            ((TextView)view.findViewById(R.id.cmpl_1)).setText(((MainActivity)getActivity()).getDrinkOneName());
-            ((TextView)view.findViewById(R.id.cmpl_2)).setText(((MainActivity)getActivity()).getDrinkTwoName());
-            final Button pay_subtotal_button = view.findViewById(R.id.pay_subtotal);
-            pay_subtotal_button.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    // Code here executes on main thread after user presses button
-                    ((MainActivity)getActivity()).resetStage();
-                    TabFragment new_frag = new TabFragment();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.main_container, new_frag);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                }
-            });
-        }
+
 
         // Inflate the layout for this fragment
         return view;

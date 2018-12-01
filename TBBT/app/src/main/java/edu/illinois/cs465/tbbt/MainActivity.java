@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.illinois.cs465.tbbt.Discover.DiscoverFragment;
+import edu.illinois.cs465.tbbt.OrderMemory.Drink;
 
 public class MainActivity extends AppCompatActivity {
     final Fragment fragment_check_in = new CheckInFragment();
@@ -33,68 +34,60 @@ public class MainActivity extends AppCompatActivity {
         return checkedIn;
     }
 
+    public void setCheckedIn(boolean status) { checkedIn = status; }
 
-    public void setCheckedIn(boolean status) {
-        checkedIn = status;
-        if (status == true){
-            stage = 0;
+    ArrayList<Drink> ready = null;
+    ArrayList<Drink> being_made = null;
+    ArrayList<Drink> picked_up = null;
+
+    ArrayList<Drink> getReady(){
+        return ready;
+    }
+    ArrayList<Drink> getBeing_made(){
+        return being_made;
+    }
+    ArrayList<Drink> getPicked_up(){
+        return picked_up;
+    }
+
+    public void placeOrder(Drink drink){
+        int bm_size = being_made.size();
+        int x = (int)Math.floor((Math.random() * (bm_size + 1)));
+        while(being_made.size() > x){
+            Drink d = being_made.get(0);
+            being_made.remove(0);
+            ready.add(d);
         }
-        else {
-            stage = -1;
-            drinkOneName = "blah1";
-            drinkTwoName = "blah2";
+        being_made.add(drink);
+    }
+
+    public void pickUpDrinks(){
+        while(being_made.size() > 0){
+            Drink d = being_made.get(0);
+            being_made.remove(0);
+            picked_up.add(d);
         }
-        return;
-    }
-    private String drinkOneName = "blah1";
-    private String drinkTwoName = "blah2";
-
-    private boolean paid = false;
-
-    private int stage = -1;
-
-    public String getDrinkOneName() {
-        return drinkOneName;
+        while(ready.size() > 0){
+            Drink d = ready.get(0);
+            ready.remove(0);
+            picked_up.add(d);
+        }
     }
 
-    public void setPaid() { paid = true; }
-    public boolean getPaid() { return paid; }
-
-    public void setDrinkOneName(String new_name) {
-        drinkOneName = new_name;
-        return;
+    public void emptyTab(){
+        while(being_made.size() > 0){
+            Drink d = being_made.get(0);
+            being_made.remove(0);
+        }
+        while(ready.size() > 0){
+            Drink d = ready.get(0);
+            ready.remove(0);
+        }
+        while(picked_up.size() > 0){
+            Drink d = picked_up.get(0);
+            picked_up.remove(0);
+        }
     }
-
-    public void buyDrinkOne() {
-        stage = 1;
-    }
-
-    public String getDrinkTwoName() {
-        return drinkTwoName;
-    }
-
-    public void setDrinkTwoName(String new_name) {
-        drinkTwoName = new_name;
-        return;
-    }
-
-    public void buyDrinkTwo() {
-        stage = 2;
-    }
-
-    public void incStage() {
-        stage = 3;
-        return;
-    }
-
-    public void resetStage() {
-        stage = 0;
-        drinkOneName = "blah1";
-        drinkTwoName = "blah2";
-        return;
-    }
-
-    public int getStage() { return stage; }
 
     public BottomNavigationView getNavigation() { return navigation; }
 
@@ -102,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ready = new ArrayList<>();
+        being_made = new ArrayList<>();
+        picked_up = new ArrayList<>();
 
         // Sets up the action bar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
