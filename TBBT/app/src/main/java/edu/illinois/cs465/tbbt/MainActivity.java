@@ -21,13 +21,33 @@ public class MainActivity extends AppCompatActivity {
     final Fragment fragment_settings = new SettingsFragment();
     final Fragment fragment_empty_tab = new EmptyTabFragment();
     final FragmentManager fm = getSupportFragmentManager();
+    BottomNavigationView navigation = null;
 
+    // Check in once only
+    private boolean checkedIn = false;
+
+    public boolean getCheckedIn() {
+        return checkedIn;
+    }
+
+    public void setCheckedIn(boolean status) {
+        checkedIn = status;
+        if (status == true){
+            stage = 0;
+        }
+        else {
+            stage = -1;
+            drinkOneName = "blah1";
+            drinkTwoName = "blah2";
+        }
+        return;
+    }
     private String drinkOneName = "blah1";
     private String drinkTwoName = "blah2";
 
     private boolean paid = false;
 
-    private int stage = 0;
+    private int stage = -1;
 
     public String getDrinkOneName() {
         return drinkOneName;
@@ -38,8 +58,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void setDrinkOneName(String new_name) {
         drinkOneName = new_name;
-        stage = 1;
         return;
+    }
+
+    public void buyDrinkOne() {
+        stage = 1;
     }
 
     public String getDrinkTwoName() {
@@ -48,8 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void setDrinkTwoName(String new_name) {
         drinkTwoName = new_name;
-        stage = 2;
         return;
+    }
+
+    public void buyDrinkTwo() {
+        stage = 2;
     }
 
     public void incStage() {
@@ -57,12 +83,16 @@ public class MainActivity extends AppCompatActivity {
         return;
     }
 
-    public void incStage2() {
-        stage = 4;
+    public void resetStage() {
+        stage = 0;
+        drinkOneName = "blah1";
+        drinkTwoName = "blah2";
         return;
     }
 
     public int getStage() { return stage; }
+
+    public BottomNavigationView getNavigation() { return navigation; }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Sets up the bottom navigation bar
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         toolbar.setTitle(R.string.text_order);
@@ -91,7 +121,10 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_order:
                     fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                    fm.beginTransaction().replace(R.id.main_container, fragment_check_in).commit();
+                    if (!checkedIn)
+                        fm.beginTransaction().replace(R.id.main_container, fragment_check_in).commit();
+                    else
+                        fm.beginTransaction().replace(R.id.main_container, new menuFragment()).commit();
                     return true;
 
                 case R.id.navigation_tab:
