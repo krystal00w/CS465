@@ -35,7 +35,7 @@ public class CheckInFragment extends Fragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                menuFragment menuFrag = new menuFragment();
+                listMenuFragment menuFrag = new listMenuFragment();
                 fragmentTransaction.replace(R.id.main_container, menuFrag);
 
                 fragmentTransaction.addToBackStack(null);
