@@ -9,7 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import edu.illinois.cs465.tbbt.OrderMemory.Drink;
 
 public class OrderFragment extends Fragment {
     public OrderFragment() {
@@ -20,25 +25,28 @@ public class OrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_order, container, false);
+        final View v = inflater.inflate(R.layout.fragment_order, container, false);
+        final String name = this.getArguments().getString("name");
         TextView drink_title = v.findViewById(R.id.drink_title);
-        if (((MainActivity)getActivity()).getStage() == 0) {
-            drink_title.setText(((MainActivity)getActivity()).getDrinkOneName());
-        }
-        else if (((MainActivity)getActivity()).getStage() == 1) {
-            drink_title.setText(((MainActivity)getActivity()).getDrinkTwoName());
-        }
-
+        drink_title.setText(name);
         final Button placeOrder = v.findViewById(R.id.submit_order);
         placeOrder.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Code here executes on main thread after user presses button
-                if (((MainActivity)getActivity()).getStage() == 0){
-                    ((MainActivity)getActivity()).buyDrinkOne();
-                }
-                else if (((MainActivity)getActivity()).getStage() == 1){
-                    ((MainActivity)getActivity()).buyDrinkTwo();
-                }
+            public void onClick(View view) {
+                EditText quantity = v.findViewById(R.id.quantity_text);
+                int q = Integer.parseInt(quantity.getEditableText().toString());
+                EditText style = v.findViewById(R.id.style_text);
+                String s = style.getEditableText().toString();
+                RadioGroup rbg = v.findViewById(R.id.radio);
+                int radioButtonID = rbg.getCheckedRadioButtonId();
+                RadioButton radioButton = rbg.findViewById(radioButtonID);
+                String choice  = radioButton.getText().toString();
+                boolean c;
+                if (choice == "single")
+                    c = false;
+                else
+                    c = true;
+                Drink order = new Drink(name, q, c, s, 2.0);
+                ((MainActivity)getActivity()).placeOrder(order);
                 BottomNavigationView navigation = ((MainActivity)getActivity()).getNavigation();
                 navigation.setSelectedItemId(R.id.navigation_tab);
 
