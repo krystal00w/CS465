@@ -55,13 +55,16 @@ public class shotsFragment extends Fragment {
     }
 
     private void passDrinkToOrder(String drink_name) {
-        if (((MainActivity) getActivity()).getStage() == 0){
-            ((MainActivity) getActivity()).setDrinkOneName(drink_name);
-        }
-        else if (((MainActivity) getActivity()).getStage() == 1){
-            ((MainActivity) getActivity()).setDrinkTwoName(drink_name);
-        }
+        /**if (((MainActivity) getActivity()).getStage() == 0){
+         ((MainActivity) getActivity()).setDrinkOneName(drink_name);
+         }
+         else if (((MainActivity) getActivity()).getStage() == 1){
+         ((MainActivity) getActivity()).setDrinkTwoName(drink_name);
+         }**/
         OrderFragment new_frag = new OrderFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("name", drink_name);
+        new_frag.setArguments(bundle);
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_container, new_frag);
         fragmentTransaction.addToBackStack(null);

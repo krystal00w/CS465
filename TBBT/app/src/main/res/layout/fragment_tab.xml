@@ -46,6 +46,7 @@
                         android:textStyle="bold"
                         android:paddingRight="35dp"
                         android:paddingLeft="35dp"
+                        android:visibility="gone"
                         style="@style/Widget.AppCompat.Button.Colored"/>
                 </LinearLayout>
             </LinearLayout>
@@ -55,38 +56,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/drink_ready_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="40dp"
-                    android:text="Drink1"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/drink_ready_amount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="x1"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/drink_ready_cost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="$2.99"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"/>
-            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -108,47 +77,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/in_progress_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:text="2m"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"/>
-
-                <TextView
-                    android:id="@+id/in_progress_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:text="Drink2"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/in_progress_amount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="x1"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"/>
-
-                <TextView
-                    android:id="@+id/in_progress_cost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="$2.99"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"/>
-            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -171,39 +99,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/completed_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="40dp"
-                    android:text="Drink3"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/completed_amount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="x1"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/completed_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="$2.99"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"/>
-
-            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -218,7 +113,8 @@
                 android:background="@android:color/holo_green_dark"
                 android:text="Pay Subtotal $8.97"
                 android:textColor="@android:color/white"
-                android:textSize="30dp" />
+                android:textSize="30dp"
+                android:visibility="gone"/>
         </LinearLayout>
     </LinearLayout>
 
