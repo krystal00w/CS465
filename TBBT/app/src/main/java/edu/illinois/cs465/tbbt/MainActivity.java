@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.illinois.cs465.tbbt.Discover.DiscoverFragment;
 import edu.illinois.cs465.tbbt.OrderMemory.Drink;
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                     if (!checkedIn)
                         fm.beginTransaction().replace(R.id.main_container, fragment_check_in).commit();
                     else
-                        fm.beginTransaction().replace(R.id.main_container, new menuFragment()).commit();
+                        fm.beginTransaction().replace(R.id.main_container, new listMenuFragment()).commit();
                     return true;
 
                 case R.id.navigation_tab:

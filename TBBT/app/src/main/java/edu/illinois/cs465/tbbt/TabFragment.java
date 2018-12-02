@@ -117,6 +117,7 @@ public class TabFragment extends Fragment {
                     }
                 });
             }
+
             else if (((MainActivity)getActivity()).getReady().size() == 0 && ((MainActivity)getActivity()).getBeing_made().size() == 0) {
                 final Button pay_subtotal_button = view.findViewById(R.id.pay_subtotal);
                 pay_subtotal_button.setVisibility(View.VISIBLE);

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".confirm_order">
+    tools:context=".">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -11,19 +11,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:paddingBottom="25dp"
-            android:text="Order"
-            android:textColor="@android:color/black"
-            android:textSize="30sp" />
+        android:gravity="top"
+        android:orientation="vertical"
+        android:paddingTop="40dp">
 
 
 
@@ -35,29 +25,36 @@
             android:text="1 x Shot of Tito's"
             android:textColor="@android:color/black"
             android:textSize="28sp"
-            android:paddingBottom="60dp" />
+            android:paddingBottom="10dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:text="- Single"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:paddingBottom="10dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:text="- On the Rocks"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:paddingBottom="10dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
-            android:text="Total"
+            android:text="Total $2.00"
             android:textColor="@android:color/black"
             android:textSize="28sp"
             android:paddingBottom="60dp" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
-            android:paddingBottom="60dp"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:editable="false"
-            android:text="Style"
-            android:textColor="@android:color/black"
-            android:textSize="30sp" />
 
         <Button
             android:layout_width="match_parent"

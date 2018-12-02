@@ -54,7 +54,7 @@
         android:layout_width="100dp"
         android:layout_height="45dp"
         android:textSize="19dp"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/rounded_button_dark"
         android:text="Pick Up"
         android:textColor="@android:color/white"
         android:textAllCaps="false" />

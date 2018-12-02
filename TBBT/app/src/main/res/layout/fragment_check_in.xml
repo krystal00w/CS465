@@ -34,13 +34,11 @@
         android:textSize="16sp"/>
 
     <Button
+        style="@style/ButtonStyleRounded"
         android:id="@+id/checked"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:text="Next"
-        android:background="@drawable/rounded_button"
-        android:textColor="@android:color/white"
-        android:textAllCaps="false"
         android:textSize="18dp"
         android:layout_marginTop="20dp"/>
 
