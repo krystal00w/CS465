@@ -56,7 +56,7 @@ public class beerRecyclerViewAdapter extends RecyclerView.Adapter<beerRecyclerVi
                     passDrinkToOrder(ft, mDataSet[getAdapterPosition()]);
                 }
             });
-            textView = (TextView) v.findViewById(R.id.textView);
+            textView = v.findViewById(R.id.menuItemText);
         }
 
         public TextView getTextView() {

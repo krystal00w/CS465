@@ -62,7 +62,6 @@ public class listMenuFragment extends Fragment {
 
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity().getApplicationContext(), DividerItemDecoration.VERTICAL));
         RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
         mRecyclerView.addItemDecoration(dividerItemDecoration);
 

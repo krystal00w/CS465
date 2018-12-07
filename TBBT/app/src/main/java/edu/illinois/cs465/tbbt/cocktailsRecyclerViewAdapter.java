@@ -55,7 +55,7 @@ public class cocktailsRecyclerViewAdapter extends RecyclerView.Adapter<cocktails
                     passDrinkToOrder(ft, mDataSet[getAdapterPosition()]);
                 }
             });
-            textView = (TextView) v.findViewById(R.id.textView);
+            textView = v.findViewById(R.id.menuItemText);
         }
 
         public TextView getTextView() {
