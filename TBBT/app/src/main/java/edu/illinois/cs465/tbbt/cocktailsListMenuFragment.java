@@ -15,8 +15,11 @@ package edu.illinois.cs465.tbbt;
  * limitations under the License.
  */
 
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -59,12 +62,43 @@ public class cocktailsListMenuFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
 
         mAdapter = new cocktailsRecyclerViewAdapter(mDataset, getActivity());
+
+        RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
+
         // Set CustomAdapter as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         return rootView;
+    }
+
+    public class DividerItemDecorator extends RecyclerView.ItemDecoration {
+        private Drawable mDivider;
+
+        public DividerItemDecorator(Drawable divider) {
+            mDivider = divider;
+        }
+
+        @Override
+        public void onDraw(Canvas canvas, RecyclerView parent, RecyclerView.State state) {
+            int dividerLeft = parent.getPaddingLeft();
+            int dividerRight = parent.getWidth() - parent.getPaddingRight();
+
+            int childCount = parent.getChildCount();
+            for (int i = 0; i <= childCount - 2; i++) {
+                View child = parent.getChildAt(i);
+
+                RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
+
+                int dividerTop = child.getBottom() + params.bottomMargin;
+                int dividerBottom = dividerTop + mDivider.getIntrinsicHeight();
+
+                mDivider.setBounds(dividerLeft, dividerTop, dividerRight, dividerBottom);
+                mDivider.draw(canvas);
+            }
+        }
     }
 
     /**
