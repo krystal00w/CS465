@@ -22,17 +22,17 @@
     <ImageView
         android:id="@+id/imageQR"
         android:layout_width="240dp"
-        android:layout_height="245dp"
+        android:layout_height="235dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/qr_code" />
 
     <ListView
         android:id="@+id/ready_list"
         android:layout_width="240dp"
-        android:layout_height="120dp"
+        android:layout_height="116dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="18dp"
         android:scrollbars="horizontal|vertical"
         android:scrollingCache="true"
         android:smoothScrollbar="true"
@@ -44,7 +44,7 @@
         android:layout_width="160dp"
         android:layout_height="45dp"
         android:textSize="19sp"
-        android:background="@drawable/rounded_button_dark"
+        android:background="@drawable/rounded_button_light"
         android:text="Pick Up"
         android:layout_marginBottom="25dp"
         android:textColor="@android:color/white"
