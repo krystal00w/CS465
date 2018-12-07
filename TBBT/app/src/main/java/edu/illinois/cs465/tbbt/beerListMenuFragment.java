@@ -20,17 +20,13 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Demonstrates the use of {@link RecyclerView} with a {@link LinearLayoutManager} and a
- * {@link GridLayoutManager}.
- */
 public class beerListMenuFragment extends Fragment {
 
     private static final int DATASET_COUNT = 5;
@@ -113,5 +109,11 @@ public class beerListMenuFragment extends Fragment {
         mDataset[2] = "Guiness";
         mDataset[3] = "Blue Moon";
         mDataset[4] = "Rigg's Hefeweizen";
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Beer");
     }
 }

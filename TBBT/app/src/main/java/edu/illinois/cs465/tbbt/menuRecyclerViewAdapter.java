@@ -52,7 +52,7 @@ public class menuRecyclerViewAdapter extends RecyclerView.Adapter<menuRecyclerVi
                     FragmentTransaction ft = (activity_fragment).getSupportFragmentManager().beginTransaction();
                     switch(getAdapterPosition()) {
                         case 0:
-                            beerFragment frag_deals = new beerFragment();
+                            DealsFragment frag_deals = new DealsFragment();
                             ft.replace(R.id.main_container, frag_deals).addToBackStack(null).commit();
                             break;
                         case 1:
