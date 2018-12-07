@@ -41,7 +41,7 @@
         style="@style/ButtonStyleRounded"
         android:id="@+id/checked"
         android:layout_width="165dp"
-        android:layout_height="40dp"
+        android:layout_height="43dp"
         android:text="Next"
         android:textSize="19dp"
         android:background="@drawable/rounded_button_dark"
