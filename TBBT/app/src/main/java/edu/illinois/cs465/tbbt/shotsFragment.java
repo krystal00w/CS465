@@ -24,7 +24,7 @@ public class shotsFragment extends Fragment {
         jameson.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                passDrinkToOrder("Jameson");
+                passDrinkToOrder("Jameson", 1.5, 1.5);
             }
         });
 
@@ -32,7 +32,7 @@ public class shotsFragment extends Fragment {
         captain_morgan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                passDrinkToOrder("Captain Morgan");
+                passDrinkToOrder("Captain Morgan", 2.0, 1.5);
             }
         });
 
@@ -40,7 +40,7 @@ public class shotsFragment extends Fragment {
         new_amsterdam.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                passDrinkToOrder("New Amsterdam");
+                passDrinkToOrder("New Amsterdam", 2.0, 1.0);
             }
         });
 
@@ -48,22 +48,18 @@ public class shotsFragment extends Fragment {
         western_son.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                passDrinkToOrder("Western Son");
+                passDrinkToOrder("Western Son", 2.0, 1.5);
             }
         });
         return view;
     }
 
-    private void passDrinkToOrder(String drink_name) {
-        /**if (((MainActivity) getActivity()).getStage() == 0){
-         ((MainActivity) getActivity()).setDrinkOneName(drink_name);
-         }
-         else if (((MainActivity) getActivity()).getStage() == 1){
-         ((MainActivity) getActivity()).setDrinkTwoName(drink_name);
-         }**/
+    private void passDrinkToOrder(String drink_name, double price, double upgrade) {
         OrderFragment new_frag = new OrderFragment();
         Bundle bundle = new Bundle();
         bundle.putString("name", drink_name);
+        bundle.putDouble("base", price);
+        bundle.putDouble("upgrade", upgrade);
         new_frag.setArguments(bundle);
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_container, new_frag);

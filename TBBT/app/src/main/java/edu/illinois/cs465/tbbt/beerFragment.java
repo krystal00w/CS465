@@ -24,7 +24,7 @@ public class beerFragment extends Fragment {
         budweiser.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                passDrinkToOrder("Budweiser");
+                passDrinkToOrder("Budweiser", 1.5, 1.0);
             }
         });
 
@@ -32,7 +32,7 @@ public class beerFragment extends Fragment {
         heineken.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                passDrinkToOrder("Heineken");
+                passDrinkToOrder("Heineken", 2.0, 1.0);
             }
         });
 
@@ -40,7 +40,7 @@ public class beerFragment extends Fragment {
         guiness.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                passDrinkToOrder("Guiness");
+                passDrinkToOrder("Guiness", 2.0, 1.0);
             }
         });
 
@@ -48,7 +48,7 @@ public class beerFragment extends Fragment {
         blue_moon.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                passDrinkToOrder("Blue Moon");
+                passDrinkToOrder("Blue Moon", 2.0, 1.5);
             }
         });
 
@@ -56,23 +56,19 @@ public class beerFragment extends Fragment {
         riggs.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                passDrinkToOrder("Rigg's Hefeweizen");
+                passDrinkToOrder("Rigg's Hefeweizen", 2.0, 1.5);
             }
         });
 
         return view;
     }
 
-    private void passDrinkToOrder(String drink_name) {
-        /**if (((MainActivity) getActivity()).getStage() == 0){
-            ((MainActivity) getActivity()).setDrinkOneName(drink_name);
-        }
-        else if (((MainActivity) getActivity()).getStage() == 1){
-            ((MainActivity) getActivity()).setDrinkTwoName(drink_name);
-        }**/
+    private void passDrinkToOrder(String drink_name, double price, double upgrade) {
         OrderFragment new_frag = new OrderFragment();
         Bundle bundle = new Bundle();
         bundle.putString("name", drink_name);
+        bundle.putDouble("base", price);
+        bundle.putDouble("upgrade", upgrade);
         new_frag.setArguments(bundle);
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_container, new_frag);

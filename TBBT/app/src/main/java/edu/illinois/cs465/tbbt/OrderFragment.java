@@ -28,7 +28,12 @@ public class OrderFragment extends Fragment {
         final View v = inflater.inflate(R.layout.fragment_order, container, false);
         final String name = this.getArguments().getString("name");
         TextView drink_title = v.findViewById(R.id.drink_title);
-        drink_title.setText(name);
+        final double base_price = this.getArguments().getDouble("base");
+        final double double_price = this.getArguments().getDouble("upgrade");
+        drink_title.setText(name + " – $" + String.format("%.2f", base_price));
+        RadioButton upgrade = v.findViewById(R.id.radio_double);
+        upgrade.setText("double (+$" + String.format("%.2f", double_price) + ")");
+
         final Button placeOrder = v.findViewById(R.id.submit_order);
         placeOrder.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -41,7 +46,7 @@ public class OrderFragment extends Fragment {
                 RadioButton radioButton = rbg.findViewById(radioButtonID);
                 String choice  = radioButton.getText().toString();
                 boolean c = !choice.equals("single");
-                Drink order = new Drink(name, q, c, s, 2.99);
+                Drink order = new Drink(name, q, c, s, (base_price + (c ? double_price : 0)) * q);
                 ((MainActivity)getActivity()).placeOrder(order);
                 BottomNavigationView navigation = ((MainActivity)getActivity()).getNavigation();
                 navigation.setSelectedItemId(R.id.navigation_tab);

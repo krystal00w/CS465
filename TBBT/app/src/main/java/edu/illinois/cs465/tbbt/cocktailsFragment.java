@@ -24,7 +24,7 @@ public class cocktailsFragment extends Fragment {
         long_island.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                passDrinkToOrder("Long Island Iced Tea");
+                passDrinkToOrder("Long Island Iced Tea", 2.5, 1.5);
             }
         });
 
@@ -32,7 +32,7 @@ public class cocktailsFragment extends Fragment {
         moscow_mule.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                passDrinkToOrder("Moscow Mule");
+                passDrinkToOrder("Moscow Mule", 2.5, 1.0);
             }
         });
 
@@ -40,23 +40,19 @@ public class cocktailsFragment extends Fragment {
         margarita.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                passDrinkToOrder("Margarita");
+                passDrinkToOrder("Margarita", 2.0, 1.5);
             }
         });
 
         return view;
     }
 
-    private void passDrinkToOrder(String drink_name) {
-        /**if (((MainActivity) getActivity()).getStage() == 0){
-         ((MainActivity) getActivity()).setDrinkOneName(drink_name);
-         }
-         else if (((MainActivity) getActivity()).getStage() == 1){
-         ((MainActivity) getActivity()).setDrinkTwoName(drink_name);
-         }**/
+    private void passDrinkToOrder(String drink_name, double price, double upgrade) {
         OrderFragment new_frag = new OrderFragment();
         Bundle bundle = new Bundle();
         bundle.putString("name", drink_name);
+        bundle.putDouble("base", price);
+        bundle.putDouble("upgrade", upgrade);
         new_frag.setArguments(bundle);
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_container, new_frag);
