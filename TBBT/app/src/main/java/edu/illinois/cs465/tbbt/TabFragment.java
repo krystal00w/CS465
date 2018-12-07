@@ -60,7 +60,7 @@ public class TabFragment extends Fragment {
                 int quantity = drink.quantity;
                 double price = drink.price;
                 boolean doubleShot = drink.doubleShot;
-                sub_total += price;
+                sub_total+= price;
                 completed_drinks[i] = name + "\t\t\tx" + quantity + "\t\t\t$" + String.format("%.2f", price);
             }
             ArrayAdapter<String> completed_drinks_adapter = new ArrayAdapter<String>(
