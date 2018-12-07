@@ -21,18 +21,23 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class listMenuFragment extends Fragment {
+/**
+ * Demonstrates the use of {@link RecyclerView} with a {@link LinearLayoutManager} and a
+ * {@link GridLayoutManager}.
+ */
+public class shotsListMenuFragment extends Fragment {
 
-    private static final int DATASET_COUNT = 4;
+    private static final int DATASET_COUNT = 5;
 
     protected RecyclerView mRecyclerView;
-    protected menuRecyclerViewAdapter mAdapter;
+    protected shotsRecyclerViewAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
 
@@ -50,22 +55,22 @@ public class listMenuFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_menu_list, container, false);
 
-        mRecyclerView = rootView.findViewById(R.id.recyclerView);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
         // LinearLayoutManager is used here, this will layout the elements in a similar fashion
         // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how
         // elements are laid out.
         mLayoutManager = new LinearLayoutManager(getActivity());
 
-        mAdapter = new menuRecyclerViewAdapter(mDataset, getActivity());
-
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new shotsRecyclerViewAdapter(mDataset, getActivity());
 
         RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
         mRecyclerView.addItemDecoration(dividerItemDecoration);
 
         // Set CustomAdapter as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
+
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         return rootView;
     }
@@ -104,16 +109,16 @@ public class listMenuFragment extends Fragment {
     private void initDataset() {
         mDataset = new String[DATASET_COUNT];
 
-        mDataset[0] = "Deals";
-        mDataset[1] = "Beer";
-        mDataset[2] = "Shots";
-        mDataset[3] = "Cocktails";
+        mDataset[0] = "Jameson";
+        mDataset[1] = "Captain Morgan";
+        mDataset[2] = "New Amsterdam";
+        mDataset[3] = "Western Son";
+        mDataset[4] = "Fireball";
     }
-
 
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Menu");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Shots");
     }
 }

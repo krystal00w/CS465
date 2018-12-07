@@ -65,7 +65,6 @@ public class PickupFragment extends Fragment {
         final Button pickup = view.findViewById(R.id.pickup);
         pickup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-//                ((AppActivity)getActivity()).incStage();
                 ((AppActivity)getActivity()).setCheckedIn(false);
 
                 // Code here executes on main thread after user presses button

@@ -27,12 +27,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class listMenuFragment extends Fragment {
+public class beerListMenuFragment extends Fragment {
 
-    private static final int DATASET_COUNT = 4;
+    private static final int DATASET_COUNT = 5;
 
     protected RecyclerView mRecyclerView;
-    protected menuRecyclerViewAdapter mAdapter;
+    protected beerRecyclerViewAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
 
@@ -50,22 +50,22 @@ public class listMenuFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_menu_list, container, false);
 
-        mRecyclerView = rootView.findViewById(R.id.recyclerView);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
         // LinearLayoutManager is used here, this will layout the elements in a similar fashion
         // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how
         // elements are laid out.
         mLayoutManager = new LinearLayoutManager(getActivity());
 
-        mAdapter = new menuRecyclerViewAdapter(mDataset, getActivity());
-
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new beerRecyclerViewAdapter(mDataset, getActivity());
 
         RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
         mRecyclerView.addItemDecoration(dividerItemDecoration);
 
         // Set CustomAdapter as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
+
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         return rootView;
     }
@@ -104,16 +104,16 @@ public class listMenuFragment extends Fragment {
     private void initDataset() {
         mDataset = new String[DATASET_COUNT];
 
-        mDataset[0] = "Deals";
-        mDataset[1] = "Beer";
-        mDataset[2] = "Shots";
-        mDataset[3] = "Cocktails";
+        mDataset[0] = "Budweiser";
+        mDataset[1] = "Heineken";
+        mDataset[2] = "Guiness";
+        mDataset[3] = "Blue Moon";
+        mDataset[4] = "Rigg's Hefeweizen";
     }
-
 
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Menu");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Beer");
     }
 }

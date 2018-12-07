@@ -24,4 +24,6 @@
     <string name="order_tutorial">In the Order tab, you can check into a bar by showing your unique QR to the security, and order your drinks.</string>
     <string name="tab_tutorial">Go to the Tab to track the status of your drinks, pick them, or pay and close your tab.</string>
     <string name="discover_tutorial">In Discover, find new bars nearby that are perfect for you, and browse the best deals.</string>
+  
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
