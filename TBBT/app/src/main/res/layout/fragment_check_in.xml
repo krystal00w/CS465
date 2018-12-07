@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@color/grey"
     tools:context=".MainActivity">
 
     <TextView
@@ -15,7 +16,7 @@
         android:gravity="center"
         android:text="Bar Check-In"
         android:textColor="@android:color/black"
-        android:textSize="22sp" />
+        android:textSize="25sp" />
 
     <ImageView
         android:layout_width="fill_parent"
@@ -23,24 +24,28 @@
         android:id="@+id/imageQR"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/qrcode"  />
+        android:src="@drawable/qr_code"  />
 
     <TextView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
         android:text="Show this QR code to security along with your ID to open a tab. You can do this when you enter the bar."
-        android:textSize="16sp"/>
+        android:textSize="17sp"/>
 
     <Button
         style="@style/ButtonStyleRounded"
         android:id="@+id/checked"
-        android:layout_width="wrap_content"
+        android:layout_width="165dp"
         android:layout_height="40dp"
         android:text="Next"
-        android:textSize="18dp"
-        android:layout_marginTop="20dp"/>
+        android:textSize="19dp"
+        android:background="@drawable/rounded_button_dark"
+        />
 
 
 </LinearLayout>

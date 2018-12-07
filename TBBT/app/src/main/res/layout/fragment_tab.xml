@@ -103,7 +103,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"/>
 
             <Button
                 android:id="@+id/pay_subtotal"
@@ -116,6 +116,6 @@
                 android:textSize="30dp"
                 android:visibility="gone"/>
         </LinearLayout>
-    </LinearLayout>
+
 
 </FrameLayout>
