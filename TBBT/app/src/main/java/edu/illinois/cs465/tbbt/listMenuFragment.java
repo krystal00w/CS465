@@ -15,8 +15,12 @@ package edu.illinois.cs465.tbbt;
  * limitations under the License.
  */
 
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,10 +28,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Demonstrates the use of {@link RecyclerView} with a {@link LinearLayoutManager} and a
- * {@link GridLayoutManager}.
- */
 public class listMenuFragment extends Fragment {
 
     private static final int DATASET_COUNT = 4;
@@ -51,7 +51,7 @@ public class listMenuFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_menu_list, container, false);
 
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        mRecyclerView = rootView.findViewById(R.id.recyclerView);
 
         // LinearLayoutManager is used here, this will layout the elements in a similar fashion
         // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how
@@ -59,12 +59,44 @@ public class listMenuFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
 
         mAdapter = new menuRecyclerViewAdapter(mDataset, getActivity());
-        // Set CustomAdapter as the adapter for RecyclerView.
-        mRecyclerView.setAdapter(mAdapter);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        // mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity().getApplicationContext(), DividerItemDecoration.VERTICAL));
+        RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
+
+        // Set CustomAdapter as the adapter for RecyclerView.
+        mRecyclerView.setAdapter(mAdapter);
+
         return rootView;
+    }
+
+    public class DividerItemDecorator extends RecyclerView.ItemDecoration {
+        private Drawable mDivider;
+
+        public DividerItemDecorator(Drawable divider) {
+            mDivider = divider;
+        }
+
+        @Override
+        public void onDraw(Canvas canvas, RecyclerView parent, RecyclerView.State state) {
+            int dividerLeft = parent.getPaddingLeft();
+            int dividerRight = parent.getWidth() - parent.getPaddingRight();
+
+            int childCount = parent.getChildCount();
+            for (int i = 0; i <= childCount - 2; i++) {
+                View child = parent.getChildAt(i);
+
+                RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
+
+                int dividerTop = child.getBottom() + params.bottomMargin;
+                int dividerBottom = dividerTop + mDivider.getIntrinsicHeight();
+
+                mDivider.setBounds(dividerLeft, dividerTop, dividerRight, dividerBottom);
+                mDivider.draw(canvas);
+            }
+        }
     }
 
     /**

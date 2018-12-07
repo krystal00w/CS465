@@ -70,14 +70,13 @@ public class menuRecyclerViewAdapter extends RecyclerView.Adapter<menuRecyclerVi
                     }
                 }
             });
-            textView = (TextView) v.findViewById(R.id.textView);
+            textView = (TextView) v.findViewById(R.id.menuItemText);
         }
 
         public TextView getTextView() {
             return textView;
         }
     }
-    // END_INCLUDE(recyclerViewSampleViewHolder)
 
     /**
      * Initialize the dataset of the Adapter.
