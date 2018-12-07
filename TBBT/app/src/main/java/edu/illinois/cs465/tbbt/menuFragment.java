@@ -33,7 +33,6 @@ public class menuFragment extends Fragment {
                 fragmentTransaction.replace(R.id.main_container, new_frag);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-
             }
         });
 
