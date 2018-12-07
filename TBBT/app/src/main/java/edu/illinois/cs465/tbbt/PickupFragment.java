@@ -71,6 +71,7 @@ public class PickupFragment extends Fragment {
 //                ((MainActivity)getActivity()).setCheckedIn(false);
 
                 // Code here executes on main thread after user presses button
+                ((MainActivity)getActivity()).pickUpDrinks();
                 TabFragment new_frag = new TabFragment();
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.main_container, new_frag);
