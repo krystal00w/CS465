@@ -20,7 +20,7 @@
         android:textSize="19sp" />
 
     <ImageView
-        android:id="@+id/imageQR"s
+        android:id="@+id/imageQR"
         android:layout_width="240dp"
         android:layout_height="235dp"
         android:layout_centerHorizontal="true"
