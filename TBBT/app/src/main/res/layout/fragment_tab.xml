@@ -114,6 +114,7 @@
                 android:text="Pay Subtotal $8.97"
                 android:textColor="@android:color/white"
                 android:textSize="30dp"
+                android:textAllCaps="false"
                 android:visibility="gone"/>
         </LinearLayout>
     </LinearLayout>

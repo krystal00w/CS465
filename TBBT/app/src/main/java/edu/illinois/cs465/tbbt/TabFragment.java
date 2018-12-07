@@ -53,6 +53,10 @@ public class TabFragment extends Fragment {
 
             ListView picked_up_list = (ListView)view.findViewById(R.id.completed_list);
             String[] completed_drinks = new String[picked_up.size()];
+            if(picked_up.size()==0){
+                completed_drinks = new String[1];
+                completed_drinks[0] = "No drinks are currently completed.";
+            }
             double sub_total = 0.00;
             for(int i=0; i<picked_up.size(); i++){
                 Drink drink = picked_up.get(i);
@@ -60,7 +64,8 @@ public class TabFragment extends Fragment {
                 int quantity = drink.quantity;
                 double price = drink.price;
                 sub_total+=price;
-                completed_drinks[i] = name + "\t\t\tx" + quantity + "\t\t\t$" + String.format("%.2f", price);
+                String format = "%-25s%-20s%s%n";
+                completed_drinks[i] = String.format(format, name, ("x"+quantity), ("$"+String.format("%.2f", price)));
             }
             ArrayAdapter<String> completed_drinks_adapter = new ArrayAdapter<String>(
                     getActivity(),
@@ -70,12 +75,17 @@ public class TabFragment extends Fragment {
 
             ListView ready_list = (ListView)view.findViewById(R.id.ready_list);
             String[] ready_drinks = new String[ready.size()];
+            if(ready.size()==0){
+                ready_drinks = new String[1];
+                ready_drinks[0] = "No drinks are currently ready.";
+            }
             for(int i=0; i<ready.size(); i++){
                 Drink drink = ready.get(i);
                 String name = drink.drinkName;
                 int quantity = drink.quantity;
                 double price = drink.price;
-                ready_drinks[i] = name + "\t\t\tx" + quantity + "\t\t\t$" + String.format("%.2f", price);
+                String format = "%-25s%-20s%s%n";
+                ready_drinks[i] = String.format(format, name, ("x"+quantity), ("$"+String.format("%.2f", price))); //+ "\t\t\tx" + quantity + "\t\t\t$" + String.format("%.2f", price);
             }
             ArrayAdapter<String> ready_drinks_adapter = new ArrayAdapter<String>(
                     getActivity(),
@@ -84,13 +94,19 @@ public class TabFragment extends Fragment {
             );
 
             ListView being_made_list = (ListView)view.findViewById(R.id.in_progress_list);
+
             String[] in_progress_drinks = new String[being_made.size()];
+            if(being_made.size()==0){
+                in_progress_drinks = new String[1];
+                in_progress_drinks[0] = "No drinks are currently in progress.";
+            }
             for(int i=0; i<being_made.size(); i++){
                 Drink drink = being_made.get(i);
                 String name = drink.drinkName;
                 int quantity = drink.quantity;
                 double price = drink.price;
-                in_progress_drinks[i] = name + "\t\t\tx" + quantity + "\t\t\t$" + String.format("%.2f", price);
+                String format = "%-25s%-20s%s%n";
+                in_progress_drinks[i] = String.format(format, name, ("x"+quantity), ("$"+String.format("%.2f", price)));
             }
 
             ArrayAdapter<String> in_progress_drinks_adapter = new ArrayAdapter<String>(
