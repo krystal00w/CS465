@@ -63,9 +63,14 @@ public class TabFragment extends Fragment {
                 String name = drink.drinkName;
                 int quantity = drink.quantity;
                 double price = drink.price;
-                sub_total+=price;
-                String format = "%-25s%-20s%s%n";
-                completed_drinks[i] = String.format(format, name, ("x"+quantity), ("$"+String.format("%.2f", price)));
+                boolean doubleShot = drink.doubleShot;
+                String dbl = (doubleShot ? " (double)" : "");
+                String notes = (drink.notes.length()==0 ? "" : "- "+drink.notes);
+                sub_total+= (price * (doubleShot ? 2 : 1) * quantity);
+                String format = "%s%s\n";
+                String order = String.format(format, (name + dbl + " x" + quantity), ("\t\t\t$"+String.format("%.2f", price)));
+                completed_drinks[i] = order + "\t\t\t" + notes;
+                //completed_drinks[i] = name + dbl +" x" + quantity + "\t\t\t$" + String.format("%.2f", price) + "\n\t\t\t- " + drink.notes;
             }
             ArrayAdapter<String> completed_drinks_adapter = new ArrayAdapter<String>(
                     getActivity(),
@@ -84,8 +89,13 @@ public class TabFragment extends Fragment {
                 String name = drink.drinkName;
                 int quantity = drink.quantity;
                 double price = drink.price;
-                String format = "%-25s%-20s%s%n";
-                ready_drinks[i] = String.format(format, name, ("x"+quantity), ("$"+String.format("%.2f", price))); //+ "\t\t\tx" + quantity + "\t\t\t$" + String.format("%.2f", price);
+                boolean doubleShot = drink.doubleShot;
+                String dbl = (doubleShot ? " (double)" : "");
+                String notes = (drink.notes.length()==0 ? "" : "- "+drink.notes);
+                String format = "%s%s\n";
+                String order = String.format(format, (name + dbl + " x" + quantity), ("\t\t\t$"+String.format("%.2f", price)));
+                ready_drinks[i] = order + "\t\t\t" + notes;
+                //ready_drinks[i] = name + dbl + " x" + quantity + "\t\t\t$" + String.format("%.2f", price) + "\n\t\t\t- " + drink.notes;
             }
             ArrayAdapter<String> ready_drinks_adapter = new ArrayAdapter<String>(
                     getActivity(),
@@ -105,8 +115,13 @@ public class TabFragment extends Fragment {
                 String name = drink.drinkName;
                 int quantity = drink.quantity;
                 double price = drink.price;
-                String format = "%-25s%-20s%s%n";
-                in_progress_drinks[i] = String.format(format, name, ("x"+quantity), ("$"+String.format("%.2f", price)));
+                boolean doubleShot = drink.doubleShot;
+                String dbl = (doubleShot ? " (double)" : "");
+                String notes = (drink.notes.length()==0 ? "" : "- "+drink.notes);
+                String format = "%s%s\n";
+                String order = String.format(format, (name + dbl + " x" + quantity), ("\t\t\t$"+String.format("%.2f", price)));
+                in_progress_drinks[i] = order + "\t\t\t" + notes;
+                //in_progress_drinks[i] = name + dbl + " x" + quantity + "\t\t\t$" + String.format("%.2f", price) + "\n\t\t\t- " + drink.notes;
             }
 
             ArrayAdapter<String> in_progress_drinks_adapter = new ArrayAdapter<String>(

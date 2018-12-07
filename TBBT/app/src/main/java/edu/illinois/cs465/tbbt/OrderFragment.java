@@ -40,12 +40,8 @@ public class OrderFragment extends Fragment {
                 int radioButtonID = rbg.getCheckedRadioButtonId();
                 RadioButton radioButton = rbg.findViewById(radioButtonID);
                 String choice  = radioButton.getText().toString();
-                boolean c;
-                if (choice == "single")
-                    c = false;
-                else
-                    c = true;
-                Drink order = new Drink(name, q, c, s, 2.0);
+                boolean c = !choice.equals("single");
+                Drink order = new Drink(name, q, c, s, 2.99);
                 ((MainActivity)getActivity()).placeOrder(order);
                 BottomNavigationView navigation = ((MainActivity)getActivity()).getNavigation();
                 navigation.setSelectedItemId(R.id.navigation_tab);
