@@ -20,4 +20,8 @@
     <string name="murphys_addr">604 E. Green st.</string>
     <string name="lion_hours">9pm-2am Mo-Su</string>
     <string name="lion_addr">211 E. Green st.</string>
+
+    <string name="order_tutorial">In the Order tab, you can check into a bar by showing your unique QR to the security, and order your drinks.</string>
+    <string name="tab_tutorial">Go to the Tab to track the status of your drinks, pick them, or pay and close your tab.</string>
+    <string name="discover_tutorial">In Discover, find new bars nearby that are perfect for you, and browse the best deals.</string>
 </resources>

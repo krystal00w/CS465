@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
@@ -25,18 +24,18 @@ public class TabFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = null;
 
-        if (!((MainActivity)getActivity()).getCheckedIn()){
+        if (!((AppActivity)getActivity()).getCheckedIn()){
             view = inflater.inflate(R.layout.fragment_not_checked_in, container, false);
         }
 
-        else if (((MainActivity)getActivity()).getReady().size() == 0 && ((MainActivity)getActivity()).getBeing_made().size() == 0 && ((MainActivity)getActivity()).getPicked_up().size() == 0){
+        else if (((AppActivity)getActivity()).getReady().size() == 0 && ((AppActivity)getActivity()).getBeing_made().size() == 0 && ((AppActivity)getActivity()).getPicked_up().size() == 0){
             view = inflater.inflate(R.layout.fragment_empty_tab, container, false);
             final Button close_tab = view.findViewById(R.id.close_tab);
             close_tab.setVisibility(View.VISIBLE);
             close_tab.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     // Code here executes on main thread after user presses button
-                    ((MainActivity)getActivity()).setCheckedIn(false);
+                    ((AppActivity)getActivity()).setCheckedIn(false);
                     TabFragment new_frag = new TabFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.main_container, new_frag);
@@ -47,9 +46,9 @@ public class TabFragment extends Fragment {
         }
         else {
             view = inflater.inflate(R.layout.fragment_tab, container, false);
-            ArrayList<Drink> ready = ((MainActivity)getActivity()).getReady();
-            ArrayList<Drink> being_made = ((MainActivity)getActivity()).getBeing_made();
-            ArrayList<Drink> picked_up = ((MainActivity)getActivity()).getPicked_up();
+            ArrayList<Drink> ready = ((AppActivity)getActivity()).getReady();
+            ArrayList<Drink> being_made = ((AppActivity)getActivity()).getBeing_made();
+            ArrayList<Drink> picked_up = ((AppActivity)getActivity()).getPicked_up();
 
             ListView picked_up_list = (ListView)view.findViewById(R.id.completed_list);
             String[] completed_drinks = new String[picked_up.size()];
@@ -104,7 +103,7 @@ public class TabFragment extends Fragment {
             ready_list.setAdapter(ready_drinks_adapter);
             being_made_list.setAdapter(in_progress_drinks_adapter);
 
-            if (((MainActivity)getActivity()).getReady().size() > 0) {
+            if (((AppActivity)getActivity()).getReady().size() > 0) {
                 final Button pick_up_button = view.findViewById(R.id.pick_up_button);
                 pick_up_button.setVisibility(View.VISIBLE);
                 pick_up_button.setOnClickListener(new View.OnClickListener() {
@@ -119,14 +118,14 @@ public class TabFragment extends Fragment {
                 });
             }
 
-            else if (((MainActivity)getActivity()).getReady().size() == 0 && ((MainActivity)getActivity()).getBeing_made().size() == 0) {
+            else if (((AppActivity)getActivity()).getReady().size() == 0 && ((AppActivity)getActivity()).getBeing_made().size() == 0) {
                 final Button pay_subtotal_button = view.findViewById(R.id.pay_subtotal);
                 pay_subtotal_button.setVisibility(View.VISIBLE);
                 pay_subtotal_button.setText("Pay Subtotal $" + String.format("%.2f", sub_total));
                 pay_subtotal_button.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         // Code here executes on main thread after user presses button
-                        ((MainActivity) getActivity()).emptyTab();
+                        ((AppActivity) getActivity()).emptyTab();
                         TabFragment new_frag = new TabFragment();
                         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new_frag);
