@@ -9,62 +9,65 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="top"
-        android:orientation="vertical"
-        android:paddingTop="40dp">
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@drawable/nightlifeimage"
+            android:scaleType="centerCrop"/>
 
         <TextView
+            android:paddingTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
             android:text="1 x Shot of Tito's"
             android:textColor="@android:color/black"
             android:textSize="28sp"
-            android:paddingBottom="10dp"
+            android:paddingBottom="15dp"
             android:id="@+id/name_quantity"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
             android:text="- Single"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:paddingBottom="10dp"
+            android:textSize="24sp"
+            android:paddingBottom="15dp"
             android:id="@+id/size_confirm"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
             android:text="- On the Rocks"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:paddingBottom="10dp"
+            android:textSize="24sp"
+            android:paddingBottom="30dp"
             android:id="@+id/style_confrim"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp"
             android:text="Total $2.00"
             android:textColor="@android:color/black"
             android:textSize="28sp"
-            android:paddingBottom="60dp"
+            android:paddingBottom="30dp"
             android:id="@+id/total"/>
 
 
         <Button
-            android:layout_width="match_parent"
+            style="@style/ButtonStyleRounded"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Confirm"
-            android:id="@+id/confirm"
-            style="@style/ButtonFlatAccented"/>
-
-
-
+            android:id="@+id/confirm"/>
     </LinearLayout>
 
 

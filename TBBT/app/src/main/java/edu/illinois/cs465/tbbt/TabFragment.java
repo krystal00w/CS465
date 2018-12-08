@@ -192,14 +192,12 @@ public class TabFragment extends Fragment {
     }
 
     private void handleShaking(int count) {
-        if (count == 3){
-            ((AppActivity)getActivity()).moveSingleDrinkToReady();
-            TabFragment new_frag = new TabFragment();
-            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.main_container, new_frag);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-        }
+        ((AppActivity)getActivity()).moveSingleDrinkToReady();
+        TabFragment new_frag = new TabFragment();
+        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.main_container, new_frag);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
     @Override
