@@ -27,7 +27,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class listMenuFragment extends Fragment {
+public class menuFragment extends Fragment {
 
     private static final int DATASET_COUNT = 4;
 
@@ -113,7 +113,7 @@ public class listMenuFragment extends Fragment {
         mImagesData = new int[DATASET_COUNT];
         mImagesData[0] = R.drawable.star;
         mImagesData[1] = R.drawable.mi_beer;
-        mImagesData[2] = R.drawable.star;
+        mImagesData[2] = R.drawable.mi_shots;
         mImagesData[3] = R.drawable.mi_cocktail;
     }
 

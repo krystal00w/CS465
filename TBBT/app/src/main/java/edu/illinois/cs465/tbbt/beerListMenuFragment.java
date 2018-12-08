@@ -35,6 +35,7 @@ public class beerListMenuFragment extends Fragment {
     protected beerRecyclerViewAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
+    protected int[] mImagesData;
     protected double[] prices;
     protected double[] upgrades;
 
@@ -52,14 +53,14 @@ public class beerListMenuFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_menu_list, container, false);
 
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        mRecyclerView = rootView.findViewById(R.id.recyclerView);
 
         // LinearLayoutManager is used here, this will layout the elements in a similar fashion
         // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how
         // elements are laid out.
         mLayoutManager = new LinearLayoutManager(getActivity());
 
-        mAdapter = new beerRecyclerViewAdapter(mDataset, prices, upgrades, getActivity());
+        mAdapter = new beerRecyclerViewAdapter(mDataset, mImagesData, prices, upgrades, getActivity());
 
         RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
         mRecyclerView.addItemDecoration(dividerItemDecoration);
@@ -105,6 +106,7 @@ public class beerListMenuFragment extends Fragment {
      */
     private void initDataset() {
         mDataset = new String[DATASET_COUNT];
+        mImagesData = new int[DATASET_COUNT];
         prices = new double[DATASET_COUNT];
         upgrades = new double[DATASET_COUNT];
 
@@ -113,6 +115,12 @@ public class beerListMenuFragment extends Fragment {
         mDataset[2] = "Guiness";
         mDataset[3] = "Blue Moon";
         mDataset[4] = "Rigg's Hefeweizen";
+
+        mImagesData[0] = R.drawable.mi_budweiser;
+        mImagesData[1] = R.drawable.mi_heineken;
+        mImagesData[2] = R.drawable.mi_guiness;
+        mImagesData[3] = R.drawable.mi_blue_moon;
+        mImagesData[4] = R.drawable.mi_riggs;
 
         prices[0] = 1.5;
         prices[1] = 2.0;

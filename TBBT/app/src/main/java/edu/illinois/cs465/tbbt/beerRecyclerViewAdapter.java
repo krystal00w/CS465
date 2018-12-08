@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -34,6 +35,7 @@ public class beerRecyclerViewAdapter extends RecyclerView.Adapter<beerRecyclerVi
     private static final String TAG = "beerRecyclerViewAdapter";
 
     public static String[] mDataSet;
+    private int[] mImagesData;
     public static double[] prices;
     public static double[] upgrades;
     private static FragmentActivity activity_fragment;
@@ -43,6 +45,7 @@ public class beerRecyclerViewAdapter extends RecyclerView.Adapter<beerRecyclerVi
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textView;
+        private final ImageView imageView;
 
         public ViewHolder(View v) {
 
@@ -60,11 +63,13 @@ public class beerRecyclerViewAdapter extends RecyclerView.Adapter<beerRecyclerVi
                 }
             });
             textView = v.findViewById(R.id.menuItemText);
+            imageView = v.findViewById(R.id.menuItemImage);
         }
 
         public TextView getTextView() {
             return textView;
         }
+        public ImageView getImageView() { return imageView; }
     }
     // END_INCLUDE(recyclerViewSampleViewHolder)
 
@@ -73,9 +78,10 @@ public class beerRecyclerViewAdapter extends RecyclerView.Adapter<beerRecyclerVi
      *
      * @param dataSet String[] containing the data to populate views to be used by RecyclerView.
      */
-    public beerRecyclerViewAdapter(String[] dataSet, double[] prices, double[] upgrades, FragmentActivity fa) {
+    public beerRecyclerViewAdapter(String[] dataSet, int[] imagesData, double[] prices, double[] upgrades, FragmentActivity fa) {
         Log.d(TAG, "Beer Recycler Created");
         mDataSet = dataSet;
+        mImagesData = imagesData;
         this.prices = prices;
         this.upgrades = upgrades;
         this.activity_fragment = fa;
@@ -99,6 +105,7 @@ public class beerRecyclerViewAdapter extends RecyclerView.Adapter<beerRecyclerVi
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
         viewHolder.getTextView().setText(mDataSet[position]);
+        viewHolder.getImageView().setImageResource(mImagesData[position]);
     }
     // Return the size of your dataset (invoked by the layout manager)
     @Override

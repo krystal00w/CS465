@@ -79,9 +79,7 @@ public class menuRecyclerViewAdapter extends RecyclerView.Adapter<menuRecyclerVi
             imageView = v.findViewById(R.id.menuItemImage);
         }
 
-        public TextView getTextView() {
-            return textView;
-        }
+        public TextView getTextView() { return textView; }
         public ImageView getImageView() { return imageView; }
     }
 
