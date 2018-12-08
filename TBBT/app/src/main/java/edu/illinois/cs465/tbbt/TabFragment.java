@@ -86,9 +86,14 @@ public class TabFragment extends Fragment {
                 String notes = (drink.notes.length()==0 ? "" : "- "+drink.notes);
 
                 sub_total+= price;
-                String format = "%s%s\n";
+                String format = "%s%s";
                 String order = String.format(format, ("$" + String.format("%.2f", price)), ("\t\t\t" + name + dbl + " x" + quantity));
-                completed_drinks[i] = order + "\t\t\t\t\t\t\t\t" + notes;
+                if(notes.length()==0){
+                    completed_drinks[i] = order;
+                }
+                else{
+                    completed_drinks[i] = order + "\n\t\t\t\t\t\t\t\t" + notes;
+                }
                 //completed_drinks[i] = name + dbl +" x" + quantity + "\t\t\t$" + String.format("%.2f", price) + "\n\t\t\t- " + drink.notes;
             }
             ArrayAdapter<String> completed_drinks_adapter = new ArrayAdapter<String>(
@@ -111,9 +116,14 @@ public class TabFragment extends Fragment {
                 boolean doubleShot = drink.doubleShot;
                 String dbl = (doubleShot ? " (double)" : "");
                 String notes = (drink.notes.length()==0 ? "" : "- "+drink.notes);
-                String format = "%s%s\n";
+                String format = "%s%s";
                 String order = String.format(format, ("$" + String.format("%.2f", price)), ("\t\t\t" + name + dbl + " x" + quantity));
-                ready_drinks[i] = order + "\t\t\t\t\t\t\t\t" + notes;
+                if(notes.length()==0){
+                    ready_drinks[i] = order;
+                }
+                else{
+                    ready_drinks[i] = order + "\n\t\t\t\t\t\t\t\t" + notes;
+                }
                 //ready_drinks[i] = name + dbl + " x" + quantity + "\t\t\t$" + String.format("%.2f", price) + "\n\t\t\t- " + drink.notes;
             }
             ArrayAdapter<String> ready_drinks_adapter = new ArrayAdapter<String>(
@@ -137,10 +147,14 @@ public class TabFragment extends Fragment {
                 boolean doubleShot = drink.doubleShot;
                 String dbl = (doubleShot ? " (double)" : "");
                 String notes = (drink.notes.length()==0 ? "" : "- "+drink.notes);
-                String format = "%s%s\n";
+                String format = "%s%s";
                 String order = String.format(format, ("$" + String.format("%.2f", price)), ("\t\t\t" + name + dbl + " x" + quantity));
-                in_progress_drinks[i] = order + "\t\t\t\t\t\t\t\t" + notes;
-                //in_progress_drinks[i] = name + dbl + " x" + quantity + "\t\t\t$" + String.format("%.2f", price) + "\n\t\t\t- " + drink.notes;
+                if(notes.length()==0){
+                    in_progress_drinks[i] = order;
+                }
+                else{
+                    in_progress_drinks[i] = order + "\n\t\t\t\t\t\t\t\t" + notes;
+                }                //in_progress_drinks[i] = name + dbl + " x" + quantity + "\t\t\t$" + String.format("%.2f", price) + "\n\t\t\t- " + drink.notes;
             }
 
             ArrayAdapter<String> in_progress_drinks_adapter = new ArrayAdapter<String>(
