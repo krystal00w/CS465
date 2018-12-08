@@ -77,7 +77,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/legends_logo"/>
+                    android:src="@drawable/bar_logo_legends"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/murphys"
@@ -141,7 +141,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/murphys_logo"/>
+                    android:src="@drawable/bar_logo_murphys"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/lion"
@@ -205,7 +205,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/lion_logo"/>
+                    android:src="@drawable/bar_logo_lion"/>
             </RelativeLayout>
             <!--Scroll testing
             <RelativeLayout
@@ -269,7 +269,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/lion_logo"/>
+                    android:src="@drawable/bar_logo_lion"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/lion3"
@@ -332,7 +332,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/lion_logo"/>
+                    android:src="@drawable/bar_logo_lion"/>
             </RelativeLayout>
             -->
 
