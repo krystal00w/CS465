@@ -13,8 +13,6 @@
         android:orientation="vertical"
         android:paddingTop="40dp">
 
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,10 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Confirm"
-            android:textColor="@android:color/white"
-            android:background="@android:color/holo_green_dark"
-            android:textSize="30sp"
-            android:id="@+id/confirm"/>
+            android:id="@+id/confirm"
+            style="@style/ButtonFlatAccented"/>
 
 
 
