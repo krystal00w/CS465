@@ -28,9 +28,11 @@ public class OrderFragment extends Fragment {
         final View v = inflater.inflate(R.layout.fragment_order, container, false);
         final String name = this.getArguments().getString("name");
         TextView drink_title = v.findViewById(R.id.drink_title);
+        TextView price = v.findViewById(R.id.price);
         final double base_price = this.getArguments().getDouble("base");
         final double double_price = this.getArguments().getDouble("upgrade");
-        drink_title.setText(name + " – $" + String.format("%.2f", base_price));
+        drink_title.setText(name);
+        price.setText(String.format("$ " + "%.2f", base_price));
         RadioButton upgrade = v.findViewById(R.id.radio_double);
         upgrade.setText("double (+$" + String.format("%.2f", double_price) + ")");
 
