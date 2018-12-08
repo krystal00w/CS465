@@ -107,7 +107,6 @@
                 android:textColor="@android:color/black"
                 android:textSize="32sp" />
 
-
             <ListView
                 android:id="@+id/completed_list"
                 android:layout_width="match_parent"

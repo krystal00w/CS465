@@ -17,7 +17,7 @@
 
         <Button
             android:id="@+id/close_tab"
-            android:text="Close tab"
+            android:text="Close Tab"
             style="@style/ButtonFlatAccented"/>
     </LinearLayout>
 
