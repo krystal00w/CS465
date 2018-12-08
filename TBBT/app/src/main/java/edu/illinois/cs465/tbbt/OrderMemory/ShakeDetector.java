@@ -5,6 +5,9 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
+/*
+    This class & all other accelerometer code is heavily based on http://jasonmcreynolds.com/?p=388&fbclid=IwAR19B-A4uiNtikSHLVzf_3pO80TkOu70iL_XGju1GzFnTXc9fFN1UvQTRKU
+ */
 public class ShakeDetector implements SensorEventListener {
     private static final float SHAKE_THRESHOLD_GRAVITY = 1.5F;
     private static final int SHAKE_SLOP_TIME_MS = 3000;
