@@ -8,8 +8,7 @@
     <ImageView
         android:id="@+id/menuItemImage"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/beer"/>
+        android:layout_height="100dp"/>
 
     <TextView
         android:id="@+id/menuItemText"

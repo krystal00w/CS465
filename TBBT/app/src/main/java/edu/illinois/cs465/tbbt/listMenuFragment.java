@@ -35,6 +35,7 @@ public class listMenuFragment extends Fragment {
     protected menuRecyclerViewAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
+    protected int[] mImagesData;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,7 @@ public class listMenuFragment extends Fragment {
         // elements are laid out.
         mLayoutManager = new LinearLayoutManager(getActivity());
 
-        mAdapter = new menuRecyclerViewAdapter(mDataset, getActivity());
+        mAdapter = new menuRecyclerViewAdapter(mDataset, mImagesData, getActivity());
 
         mRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -108,6 +109,12 @@ public class listMenuFragment extends Fragment {
         mDataset[1] = "Beer";
         mDataset[2] = "Shots";
         mDataset[3] = "Cocktails";
+
+        mImagesData = new int[DATASET_COUNT];
+        mImagesData[0] = R.drawable.star;
+        mImagesData[1] = R.drawable.beer;
+        mImagesData[2] = R.drawable.star;
+        mImagesData[3] = R.drawable.cocktail;
     }
 
 
