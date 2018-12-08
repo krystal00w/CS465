@@ -40,6 +40,7 @@ public class cocktailsListMenuFragment extends Fragment {
     protected cocktailsRecyclerViewAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
+    protected int[] mImagesData;
     protected double[] prices;
     protected double[] upgrades;
 
@@ -64,7 +65,7 @@ public class cocktailsListMenuFragment extends Fragment {
         // elements are laid out.
         mLayoutManager = new LinearLayoutManager(getActivity());
 
-        mAdapter = new cocktailsRecyclerViewAdapter(mDataset, prices, upgrades, getActivity());
+        mAdapter = new cocktailsRecyclerViewAdapter(mDataset, mImagesData, prices, upgrades, getActivity());
 
         RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
         mRecyclerView.addItemDecoration(dividerItemDecoration);
@@ -110,6 +111,7 @@ public class cocktailsListMenuFragment extends Fragment {
      */
     private void initDataset() {
         mDataset = new String[DATASET_COUNT];
+        mImagesData = new int[DATASET_COUNT];
         prices = new double[DATASET_COUNT];
         upgrades = new double[DATASET_COUNT];
 
@@ -118,6 +120,12 @@ public class cocktailsListMenuFragment extends Fragment {
         mDataset[2] = "Moscow Mule";
         mDataset[3] = "Gin & Tonic";
         mDataset[4] = "Manhattan";
+
+        mImagesData[0] = R.drawable.mi_long_island;
+        mImagesData[1] = R.drawable.mi_margarita;
+        mImagesData[2] = R.drawable.mi_moscow_mule;
+        mImagesData[3] = R.drawable.mi_gin_and_tonic;
+        mImagesData[4] = R.drawable.mi_manhattan;
 
         prices[0] = 5.0;
         prices[1] = 4.0;

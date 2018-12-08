@@ -40,6 +40,7 @@ public class shotsListMenuFragment extends Fragment {
     protected shotsRecyclerViewAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
+    protected int[] mImagesData;
     protected double[] prices;
     protected double[] upgrades;
 
@@ -64,7 +65,7 @@ public class shotsListMenuFragment extends Fragment {
         // elements are laid out.
         mLayoutManager = new LinearLayoutManager(getActivity());
 
-        mAdapter = new shotsRecyclerViewAdapter(mDataset, prices, upgrades, getActivity());
+        mAdapter = new shotsRecyclerViewAdapter(mDataset, mImagesData, prices, upgrades, getActivity());
 
         RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
         mRecyclerView.addItemDecoration(dividerItemDecoration);
@@ -110,6 +111,7 @@ public class shotsListMenuFragment extends Fragment {
      */
     private void initDataset() {
         mDataset = new String[DATASET_COUNT];
+        mImagesData = new int[DATASET_COUNT];
         prices = new double[DATASET_COUNT];
         upgrades = new double[DATASET_COUNT];
 
@@ -118,6 +120,12 @@ public class shotsListMenuFragment extends Fragment {
         mDataset[2] = "New Amsterdam";
         mDataset[3] = "Western Son";
         mDataset[4] = "Fireball";
+
+        mImagesData[0] = R.drawable.mi_jameson;
+        mImagesData[1] = R.drawable.mi_captain_morgan;
+        mImagesData[2] = R.drawable.mi_new_amsterdam;
+        mImagesData[3] = R.drawable.mi_western_son;
+        mImagesData[4] = R.drawable.mi_fireball;
 
         prices[0] = 1.5;
         prices[1] = 2.0;
