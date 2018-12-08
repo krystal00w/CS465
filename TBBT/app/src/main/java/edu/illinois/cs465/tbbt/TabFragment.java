@@ -87,13 +87,13 @@ public class TabFragment extends Fragment {
 
                 sub_total+= price;
                 String format = "%s%s\n";
-                String order = String.format(format, (name + dbl + " x" + quantity), ("\t\t\t$"+String.format("%.2f", price)));
-                completed_drinks[i] = order + "\t\t\t" + notes;
+                String order = String.format(format, ("$" + String.format("%.2f", price)), ("\t\t\t" + name + dbl + " x" + quantity));
+                completed_drinks[i] = order + "\t\t\t\t\t\t\t\t" + notes;
                 //completed_drinks[i] = name + dbl +" x" + quantity + "\t\t\t$" + String.format("%.2f", price) + "\n\t\t\t- " + drink.notes;
             }
             ArrayAdapter<String> completed_drinks_adapter = new ArrayAdapter<String>(
                     getActivity(),
-                    android.R.layout.simple_list_item_1,
+                    R.layout.tab_list_view,
                     completed_drinks
             );
 
@@ -112,13 +112,13 @@ public class TabFragment extends Fragment {
                 String dbl = (doubleShot ? " (double)" : "");
                 String notes = (drink.notes.length()==0 ? "" : "- "+drink.notes);
                 String format = "%s%s\n";
-                String order = String.format(format, (name + dbl + " x" + quantity), ("\t\t\t$"+String.format("%.2f", price)));
-                ready_drinks[i] = order + "\t\t\t" + notes;
+                String order = String.format(format, ("$" + String.format("%.2f", price)), ("\t\t\t" + name + dbl + " x" + quantity));
+                ready_drinks[i] = order + "\t\t\t\t\t\t\t\t" + notes;
                 //ready_drinks[i] = name + dbl + " x" + quantity + "\t\t\t$" + String.format("%.2f", price) + "\n\t\t\t- " + drink.notes;
             }
             ArrayAdapter<String> ready_drinks_adapter = new ArrayAdapter<String>(
                     getActivity(),
-                    android.R.layout.simple_list_item_1,
+                    R.layout.tab_list_view,
                     ready_drinks
             );
 
@@ -138,14 +138,14 @@ public class TabFragment extends Fragment {
                 String dbl = (doubleShot ? " (double)" : "");
                 String notes = (drink.notes.length()==0 ? "" : "- "+drink.notes);
                 String format = "%s%s\n";
-                String order = String.format(format, (name + dbl + " x" + quantity), ("\t\t\t$"+String.format("%.2f", price)));
-                in_progress_drinks[i] = order + "\t\t\t" + notes;
+                String order = String.format(format, ("$" + String.format("%.2f", price)), ("\t\t\t" + name + dbl + " x" + quantity));
+                in_progress_drinks[i] = order + "\t\t\t\t\t\t\t\t" + notes;
                 //in_progress_drinks[i] = name + dbl + " x" + quantity + "\t\t\t$" + String.format("%.2f", price) + "\n\t\t\t- " + drink.notes;
             }
 
             ArrayAdapter<String> in_progress_drinks_adapter = new ArrayAdapter<String>(
                     getActivity(),
-                    android.R.layout.simple_list_item_1,
+                    R.layout.tab_list_view,
                     in_progress_drinks
             );
 

@@ -161,6 +161,7 @@
             android:textColor="@android:color/white"
             android:background="@color/dark_blue"
             android:textSize="30sp"
+            android:textAllCaps="false"
             android:fontFamily="@font/opensans_reg"
             android:layout_gravity="bottom"/>
 
