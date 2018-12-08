@@ -70,11 +70,6 @@ public class AppActivity extends AppCompatActivity {
     }
 
     public void pickUpDrinks(){
-        while(being_made.size() > 0){
-            Drink d = being_made.get(0);
-            being_made.remove(0);
-            picked_up.add(d);
-        }
         while(ready.size() > 0){
             Drink d = ready.get(0);
             ready.remove(0);
