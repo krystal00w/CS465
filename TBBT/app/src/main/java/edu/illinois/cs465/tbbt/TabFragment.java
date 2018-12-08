@@ -39,7 +39,7 @@ public class TabFragment extends Fragment {
 
             @Override
             public void onShake(int count) {
-                handleShaking();
+                handleShaking(count);
             }
         });
 
@@ -191,13 +191,15 @@ public class TabFragment extends Fragment {
         return view;
     }
 
-    private void handleShaking() {
-        ((AppActivity)getActivity()).moveSingleDrinkToReady();
-        TabFragment new_frag = new TabFragment();
-        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_container, new_frag);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+    private void handleShaking(int count) {
+        if (count == 3){
+            ((AppActivity)getActivity()).moveSingleDrinkToReady();
+            TabFragment new_frag = new TabFragment();
+            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.main_container, new_frag);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override
