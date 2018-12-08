@@ -6,10 +6,9 @@
     tools:context=".DealsFragment">
 
     <TextView
+        style="@style/TextLargeCenter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize =  "32sp"
-        android:gravity="center"
         android:text="There are no deals at Murphy's at this time." />
 
 </FrameLayout>

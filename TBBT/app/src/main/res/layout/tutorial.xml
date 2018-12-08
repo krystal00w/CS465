@@ -2,7 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -11,7 +12,8 @@
         android:layout_gravity="center_horizontal"
         android:text="Welcome to The Better Bar Tab!"
         android:textSize="25sp"
-        android:paddingTop="50dp"/>
+        android:paddingTop="50dp"
+        android:textColor="@android:color/black"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +39,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/order_tutorial"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@android:color/black"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -55,7 +58,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tab_tutorial"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@android:color/black"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -73,7 +77,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/discover_tutorial"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textColor="@android:color/black"/>
         </RelativeLayout>
 
         <Button
@@ -85,9 +90,7 @@
             android:fontFamily="@font/opensans_reg"
             android:layout_gravity="center_horizontal"
             android:text="Start using TBBT!"
-            android:textSize="21sp"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@color/dark_blue"/>
+            android:textSize="21sp"/>
 
     </LinearLayout>
 
