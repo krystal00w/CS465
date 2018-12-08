@@ -55,7 +55,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
-                            android:paddingEnd="5dp">
+                            android:paddingEnd="10dp">
                             <ImageView
                                 android:layout_width="45dp"
                                 android:layout_height="match_parent"
@@ -116,7 +116,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
-                            android:paddingEnd="5dp">
+                            android:paddingEnd="10dp">
                             <ImageView
                                 android:layout_width="45dp"
                                 android:layout_height="match_parent"
@@ -177,7 +177,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
-                            android:paddingEnd="5dp">
+                            android:paddingEnd="10dp">
                             <ImageView
                                 android:layout_width="45dp"
                                 android:layout_height="match_parent"
