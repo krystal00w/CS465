@@ -30,9 +30,11 @@ import android.widget.TextView;
  * Provide views to RecyclerView with data from mDataSet.
  */
 public class cocktailsRecyclerViewAdapter extends RecyclerView.Adapter<cocktailsRecyclerViewAdapter.ViewHolder> {
-    private static final String TAG = "shotRecyclerViewAdapter";
+    private static final String TAG = "CocktailViewAdapter";
 
     public static String[] mDataSet;
+    public static double[] prices;
+    public static double[] upgrades;
     private static FragmentActivity activity_fragment;
 
     /**
@@ -52,7 +54,8 @@ public class cocktailsRecyclerViewAdapter extends RecyclerView.Adapter<cocktails
                     Log.d(TAG, mDataSet[0]);
 
                     FragmentTransaction ft = (activity_fragment).getSupportFragmentManager().beginTransaction();
-                    passDrinkToOrder(ft, mDataSet[getAdapterPosition()]);
+                    int idx = getAdapterPosition();
+                    passDrinkToOrder(ft, mDataSet[idx], prices[idx], upgrades[idx]);
                 }
             });
             textView = v.findViewById(R.id.menuItemText);
@@ -69,9 +72,11 @@ public class cocktailsRecyclerViewAdapter extends RecyclerView.Adapter<cocktails
      *
      * @param dataSet String[] containing the data to populate views to be used by RecyclerView.
      */
-    public cocktailsRecyclerViewAdapter(String[] dataSet, FragmentActivity fa) {
-        Log.d(TAG, "Beer Recycler Created");
+    public cocktailsRecyclerViewAdapter(String[] dataSet, double[] prices, double[] upgrades, FragmentActivity fa) {
+        Log.d(TAG, "Cocktail Recycler Created");
         mDataSet = dataSet;
+        this.prices = prices;
+        this.upgrades = upgrades;
         this.activity_fragment = fa;
     }
 
@@ -100,7 +105,7 @@ public class cocktailsRecyclerViewAdapter extends RecyclerView.Adapter<cocktails
         return mDataSet.length;
     }
 
-    private static void passDrinkToOrder(FragmentTransaction ft, String drink_name) {
+    private static void passDrinkToOrder(FragmentTransaction ft, String drink_name, double price, double upgrade) {
         /**if (((MainActivity) getActivity()).getStage() == 0){
          ((MainActivity) getActivity()).setDrinkOneName(drink_name);
          }
@@ -110,6 +115,8 @@ public class cocktailsRecyclerViewAdapter extends RecyclerView.Adapter<cocktails
         OrderFragment new_frag = new OrderFragment();
         Bundle bundle = new Bundle();
         bundle.putString("name", drink_name);
+        bundle.putDouble("base", price);
+        bundle.putDouble("upgrade", upgrade);
         new_frag.setArguments(bundle);
         ft.replace(R.id.main_container, new_frag).addToBackStack(null).commit();
     }

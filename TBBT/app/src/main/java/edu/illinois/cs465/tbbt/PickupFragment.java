@@ -68,7 +68,7 @@ public class PickupFragment extends Fragment {
         pickup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 //                ((MainActivity)getActivity()).incStage();
-//                ((MainActivity)getActivity()).setCheckedIn(false);
+                ((MainActivity)getActivity()).pickUpDrinks();
 
                 // Code here executes on main thread after user presses button
                 TabFragment new_frag = new TabFragment();
