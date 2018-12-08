@@ -35,6 +35,8 @@ public class beerListMenuFragment extends Fragment {
     protected beerRecyclerViewAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
+    protected double[] prices;
+    protected double[] upgrades;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,7 @@ public class beerListMenuFragment extends Fragment {
         // elements are laid out.
         mLayoutManager = new LinearLayoutManager(getActivity());
 
-        mAdapter = new beerRecyclerViewAdapter(mDataset, getActivity());
+        mAdapter = new beerRecyclerViewAdapter(mDataset, prices, upgrades, getActivity());
 
         RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
         mRecyclerView.addItemDecoration(dividerItemDecoration);
@@ -103,12 +105,26 @@ public class beerListMenuFragment extends Fragment {
      */
     private void initDataset() {
         mDataset = new String[DATASET_COUNT];
+        prices = new double[DATASET_COUNT];
+        upgrades = new double[DATASET_COUNT];
 
         mDataset[0] = "Budweiser";
         mDataset[1] = "Heineken";
         mDataset[2] = "Guiness";
         mDataset[3] = "Blue Moon";
         mDataset[4] = "Rigg's Hefeweizen";
+
+        prices[0] = 1.5;
+        prices[1] = 2.0;
+        prices[2] = 3.0;
+        prices[3] = 2.0;
+        prices[4] = 3.5;
+
+        upgrades[0] = 1.0;
+        upgrades[1] = 1.0;
+        upgrades[2] = 1.5;
+        upgrades[3] = 1.0;
+        upgrades[4] = 2.0;
     }
 
     @Override

@@ -34,6 +34,8 @@ public class beerRecyclerViewAdapter extends RecyclerView.Adapter<beerRecyclerVi
     private static final String TAG = "beerRecyclerViewAdapter";
 
     public static String[] mDataSet;
+    public static double[] prices;
+    public static double[] upgrades;
     private static FragmentActivity activity_fragment;
 
     /**
@@ -53,7 +55,8 @@ public class beerRecyclerViewAdapter extends RecyclerView.Adapter<beerRecyclerVi
                     Log.d(TAG, mDataSet[0]);
 
                     FragmentTransaction ft = (activity_fragment).getSupportFragmentManager().beginTransaction();
-                    passDrinkToOrder(ft, mDataSet[getAdapterPosition()]);
+                    int idx = getAdapterPosition();
+                    passDrinkToOrder(ft, mDataSet[idx], prices[idx], upgrades[idx]);
                 }
             });
             textView = v.findViewById(R.id.menuItemText);
@@ -70,9 +73,11 @@ public class beerRecyclerViewAdapter extends RecyclerView.Adapter<beerRecyclerVi
      *
      * @param dataSet String[] containing the data to populate views to be used by RecyclerView.
      */
-    public beerRecyclerViewAdapter(String[] dataSet, FragmentActivity fa) {
+    public beerRecyclerViewAdapter(String[] dataSet, double[] prices, double[] upgrades, FragmentActivity fa) {
         Log.d(TAG, "Beer Recycler Created");
         mDataSet = dataSet;
+        this.prices = prices;
+        this.upgrades = upgrades;
         this.activity_fragment = fa;
     }
 
@@ -101,7 +106,7 @@ public class beerRecyclerViewAdapter extends RecyclerView.Adapter<beerRecyclerVi
         return mDataSet.length;
     }
 
-    private static void passDrinkToOrder(FragmentTransaction ft, String drink_name) {
+    private static void passDrinkToOrder(FragmentTransaction ft, String drink_name, double price, double upgrade) {
         /**if (((MainActivity) getActivity()).getStage() == 0){
          ((MainActivity) getActivity()).setDrinkOneName(drink_name);
          }
@@ -111,6 +116,8 @@ public class beerRecyclerViewAdapter extends RecyclerView.Adapter<beerRecyclerVi
         OrderFragment new_frag = new OrderFragment();
         Bundle bundle = new Bundle();
         bundle.putString("name", drink_name);
+        bundle.putDouble("base", price);
+        bundle.putDouble("upgrade", upgrade);
         new_frag.setArguments(bundle);
         ft.replace(R.id.main_container, new_frag).addToBackStack(null).commit();
     }

@@ -40,6 +40,8 @@ public class shotsListMenuFragment extends Fragment {
     protected shotsRecyclerViewAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
+    protected double[] prices;
+    protected double[] upgrades;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,7 @@ public class shotsListMenuFragment extends Fragment {
         // elements are laid out.
         mLayoutManager = new LinearLayoutManager(getActivity());
 
-        mAdapter = new shotsRecyclerViewAdapter(mDataset, getActivity());
+        mAdapter = new shotsRecyclerViewAdapter(mDataset, prices, upgrades, getActivity());
 
         RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
         mRecyclerView.addItemDecoration(dividerItemDecoration);
@@ -108,12 +110,26 @@ public class shotsListMenuFragment extends Fragment {
      */
     private void initDataset() {
         mDataset = new String[DATASET_COUNT];
+        prices = new double[DATASET_COUNT];
+        upgrades = new double[DATASET_COUNT];
 
         mDataset[0] = "Jameson";
         mDataset[1] = "Captain Morgan";
         mDataset[2] = "New Amsterdam";
         mDataset[3] = "Western Son";
         mDataset[4] = "Fireball";
+
+        prices[0] = 1.5;
+        prices[1] = 2.0;
+        prices[2] = 2.0;
+        prices[3] = 2.5;
+        prices[4] = 2.0;
+
+        upgrades[0] = 1.5;
+        upgrades[1] = 1.5;
+        upgrades[2] = 1.0;
+        upgrades[3] = 2.0;
+        upgrades[4] = 1.5;
     }
 
     @Override

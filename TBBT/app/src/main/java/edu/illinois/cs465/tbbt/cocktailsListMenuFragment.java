@@ -40,6 +40,8 @@ public class cocktailsListMenuFragment extends Fragment {
     protected cocktailsRecyclerViewAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
+    protected double[] prices;
+    protected double[] upgrades;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,7 @@ public class cocktailsListMenuFragment extends Fragment {
         // elements are laid out.
         mLayoutManager = new LinearLayoutManager(getActivity());
 
-        mAdapter = new cocktailsRecyclerViewAdapter(mDataset, getActivity());
+        mAdapter = new cocktailsRecyclerViewAdapter(mDataset, prices, upgrades, getActivity());
 
         RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
         mRecyclerView.addItemDecoration(dividerItemDecoration);
@@ -108,12 +110,26 @@ public class cocktailsListMenuFragment extends Fragment {
      */
     private void initDataset() {
         mDataset = new String[DATASET_COUNT];
+        prices = new double[DATASET_COUNT];
+        upgrades = new double[DATASET_COUNT];
 
         mDataset[0] = "Long Island Iced Tea";
         mDataset[1] = "Margarita";
         mDataset[2] = "Moscow Mule";
         mDataset[3] = "Gin & Tonic";
         mDataset[4] = "Manhattan";
+
+        prices[0] = 5.0;
+        prices[1] = 4.0;
+        prices[2] = 3.0;
+        prices[3] = 3.0;
+        prices[4] = 5.0;
+
+        upgrades[0] = 2.5;
+        upgrades[1] = 1.5;
+        upgrades[2] = 1.0;
+        upgrades[3] = 1.5;
+        upgrades[4] = 2.0;
     }
 
     @Override
