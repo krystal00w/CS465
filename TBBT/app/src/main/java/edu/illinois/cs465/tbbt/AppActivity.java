@@ -39,6 +39,11 @@ public class AppActivity extends AppCompatActivity {
     ArrayList<Drink> ready = null;
     ArrayList<Drink> being_made = null;
     ArrayList<Drink> picked_up = null;
+    Drink current_drink = null;
+
+    public Drink getCurrent_drink() { return current_drink; }
+
+    public void setCurrent_drink(Drink drink){ current_drink = drink; }
 
     ArrayList<Drink> getReady(){
         return ready;
