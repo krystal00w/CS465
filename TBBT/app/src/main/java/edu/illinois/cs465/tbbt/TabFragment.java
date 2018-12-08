@@ -84,6 +84,7 @@ public class TabFragment extends Fragment {
                 boolean doubleShot = drink.doubleShot;
                 String dbl = (doubleShot ? " (double)" : "");
                 String notes = (drink.notes.length()==0 ? "" : "- "+drink.notes);
+
                 sub_total+= price;
                 String format = "%s%s\n";
                 String order = String.format(format, (name + dbl + " x" + quantity), ("\t\t\t$"+String.format("%.2f", price)));

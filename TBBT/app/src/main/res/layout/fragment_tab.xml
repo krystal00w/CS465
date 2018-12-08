@@ -91,7 +91,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@+id/in_prog_section">
+            android:layout_below="@+id/in_prog_section"
+            android:layout_above="@+id/pay_subtotal">
 
             <TextView
                 android:layout_width="match_parent"
@@ -106,8 +107,7 @@
             <ListView
                 android:id="@+id/completed_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/pay_subtotal"/>
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
