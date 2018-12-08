@@ -6,12 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".TabFragment">
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/ready_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -33,6 +35,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp"
                     android:gravity="right">
 
                     <Button
@@ -41,27 +45,30 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Pick Up"
-                        android:textSize="23sp"
+                        android:textSize="20sp"
                         android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:paddingRight="35dp"
                         android:paddingLeft="35dp"
                         android:visibility="gone"
-                        style="@style/Widget.AppCompat.Button.Colored"/>
+                        style="@style/ButtonStyleRounded"/>
                 </LinearLayout>
             </LinearLayout>
 
             <ListView
                 android:id="@+id/ready_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"/>
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/in_prog_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_below="@+id/ready_section">
 
             <TextView
                 android:layout_width="match_parent"
@@ -80,9 +87,11 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/completed_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_below="@+id/in_prog_section">
 
             <TextView
                 android:layout_width="match_parent"
@@ -97,19 +106,11 @@
             <ListView
                 android:id="@+id/completed_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/pay_subtotal"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         <Button
             android:id="@+id/pay_subtotal"
             android:layout_width="match_parent"
@@ -119,7 +120,9 @@
             android:text="Pay Subtotal $8.97"
             android:textColor="@android:color/white"
             android:textSize="30dp"
-            android:visibility="gone"/>
-    </LinearLayout>
+            android:textAllCaps="false"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
 
 </FrameLayout>
