@@ -28,7 +28,7 @@
                         android:layout_width="150dp"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"
-                        android:src="@drawable/legends_logo" />
+                        android:src="@drawable/bar_logo_legends" />
                     <LinearLayout
                         android:layout_alignParentLeft="true"
                         android:layout_toStartOf="@id/logo"
@@ -189,7 +189,7 @@
                             android:layout_width="95dp"
                             android:layout_height="95dp"
                             android:layout_alignParentEnd="true"
-                            android:src="@drawable/cocktail"/>
+                            android:src="@drawable/mi_cocktail"/>
                     </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -216,7 +216,7 @@
                             android:layout_width="95dp"
                             android:layout_height="95dp"
                             android:layout_alignParentEnd="true"
-                            android:src="@drawable/beer"/>
+                            android:src="@drawable/mi_beer"/>
                     </RelativeLayout>
 
                 </LinearLayout>
