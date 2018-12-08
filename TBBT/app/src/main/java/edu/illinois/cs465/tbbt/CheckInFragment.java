@@ -35,13 +35,13 @@ public class CheckInFragment extends Fragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                listMenuFragment menuFrag = new listMenuFragment();
+                menuFragment menuFrag = new menuFragment();
                 fragmentTransaction.replace(R.id.main_container, menuFrag);
 
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
-                ((MainActivity) getActivity()).setCheckedIn(true);
+                ((AppActivity) getActivity()).setCheckedIn(true);
             }
         });
 

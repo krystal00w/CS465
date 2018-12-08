@@ -21,21 +21,28 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class menuFragment extends Fragment {
+/**
+ * Demonstrates the use of {@link RecyclerView} with a {@link LinearLayoutManager} and a
+ * {@link GridLayoutManager}.
+ */
+public class cocktailsListMenuFragment extends Fragment {
 
-    private static final int DATASET_COUNT = 4;
+    private static final int DATASET_COUNT = 5;
 
     protected RecyclerView mRecyclerView;
-    protected menuRecyclerViewAdapter mAdapter;
+    protected cocktailsRecyclerViewAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
     protected int[] mImagesData;
+    protected double[] prices;
+    protected double[] upgrades;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,15 +65,15 @@ public class menuFragment extends Fragment {
         // elements are laid out.
         mLayoutManager = new LinearLayoutManager(getActivity());
 
-        mAdapter = new menuRecyclerViewAdapter(mDataset, mImagesData, getActivity());
-
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new cocktailsRecyclerViewAdapter(mDataset, mImagesData, prices, upgrades, getActivity());
 
         RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
         mRecyclerView.addItemDecoration(dividerItemDecoration);
 
         // Set CustomAdapter as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
+
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         return rootView;
     }
@@ -104,23 +111,38 @@ public class menuFragment extends Fragment {
      */
     private void initDataset() {
         mDataset = new String[DATASET_COUNT];
-
-        mDataset[0] = "Deals";
-        mDataset[1] = "Beer";
-        mDataset[2] = "Shots";
-        mDataset[3] = "Cocktails";
-
         mImagesData = new int[DATASET_COUNT];
-        mImagesData[0] = R.drawable.star;
-        mImagesData[1] = R.drawable.mi_beer;
-        mImagesData[2] = R.drawable.mi_shots;
-        mImagesData[3] = R.drawable.mi_cocktail;
-    }
+        prices = new double[DATASET_COUNT];
+        upgrades = new double[DATASET_COUNT];
 
+        mDataset[0] = "Long Island Iced Tea";
+        mDataset[1] = "Margarita";
+        mDataset[2] = "Moscow Mule";
+        mDataset[3] = "Gin & Tonic";
+        mDataset[4] = "Manhattan";
+
+        mImagesData[0] = R.drawable.mi_long_island;
+        mImagesData[1] = R.drawable.mi_margarita;
+        mImagesData[2] = R.drawable.mi_moscow_mule;
+        mImagesData[3] = R.drawable.mi_gin_and_tonic;
+        mImagesData[4] = R.drawable.mi_manhattan;
+
+        prices[0] = 5.0;
+        prices[1] = 4.0;
+        prices[2] = 3.0;
+        prices[3] = 3.0;
+        prices[4] = 5.0;
+
+        upgrades[0] = 2.5;
+        upgrades[1] = 1.5;
+        upgrades[2] = 1.0;
+        upgrades[3] = 1.5;
+        upgrades[4] = 2.0;
+    }
 
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Menu");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Cocktails");
     }
 }

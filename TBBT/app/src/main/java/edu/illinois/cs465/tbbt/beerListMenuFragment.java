@@ -27,15 +27,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class menuFragment extends Fragment {
+public class beerListMenuFragment extends Fragment {
 
-    private static final int DATASET_COUNT = 4;
+    private static final int DATASET_COUNT = 5;
 
     protected RecyclerView mRecyclerView;
-    protected menuRecyclerViewAdapter mAdapter;
+    protected beerRecyclerViewAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
     protected int[] mImagesData;
+    protected double[] prices;
+    protected double[] upgrades;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,15 +60,15 @@ public class menuFragment extends Fragment {
         // elements are laid out.
         mLayoutManager = new LinearLayoutManager(getActivity());
 
-        mAdapter = new menuRecyclerViewAdapter(mDataset, mImagesData, getActivity());
-
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new beerRecyclerViewAdapter(mDataset, mImagesData, prices, upgrades, getActivity());
 
         RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(getActivity(), R.drawable.menu_divider));
         mRecyclerView.addItemDecoration(dividerItemDecoration);
 
         // Set CustomAdapter as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
+
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         return rootView;
     }
@@ -104,23 +106,38 @@ public class menuFragment extends Fragment {
      */
     private void initDataset() {
         mDataset = new String[DATASET_COUNT];
-
-        mDataset[0] = "Deals";
-        mDataset[1] = "Beer";
-        mDataset[2] = "Shots";
-        mDataset[3] = "Cocktails";
-
         mImagesData = new int[DATASET_COUNT];
-        mImagesData[0] = R.drawable.star;
-        mImagesData[1] = R.drawable.mi_beer;
-        mImagesData[2] = R.drawable.mi_shots;
-        mImagesData[3] = R.drawable.mi_cocktail;
-    }
+        prices = new double[DATASET_COUNT];
+        upgrades = new double[DATASET_COUNT];
 
+        mDataset[0] = "Budweiser";
+        mDataset[1] = "Heineken";
+        mDataset[2] = "Guiness";
+        mDataset[3] = "Blue Moon";
+        mDataset[4] = "Rigg's Hefeweizen";
+
+        mImagesData[0] = R.drawable.mi_budweiser;
+        mImagesData[1] = R.drawable.mi_heineken;
+        mImagesData[2] = R.drawable.mi_guiness;
+        mImagesData[3] = R.drawable.mi_blue_moon;
+        mImagesData[4] = R.drawable.mi_riggs;
+
+        prices[0] = 1.5;
+        prices[1] = 2.0;
+        prices[2] = 3.0;
+        prices[3] = 2.0;
+        prices[4] = 3.5;
+
+        upgrades[0] = 1.0;
+        upgrades[1] = 1.0;
+        upgrades[2] = 1.5;
+        upgrades[3] = 1.0;
+        upgrades[4] = 2.0;
+    }
 
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Menu");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Beer");
     }
 }

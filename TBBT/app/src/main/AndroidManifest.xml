@@ -18,7 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Discover.BarPreviewActivity"></activity>
+        <activity android:name=".AppActivity"
+            android:noHistory="true"
+            android:theme="@style/TBBTTheme"/>
     </application>
 
 </manifest>
