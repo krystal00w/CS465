@@ -1,7 +1,6 @@
 package edu.illinois.cs465.tbbt;
 
 import android.os.Bundle;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -47,9 +46,15 @@ public class OrderFragment extends Fragment {
                 String choice  = radioButton.getText().toString();
                 boolean c = !choice.equals("single");
                 Drink order = new Drink(name, q, c, s, (base_price + (c ? double_price : 0)) * q);
-                ((MainActivity)getActivity()).placeOrder(order);
-                BottomNavigationView navigation = ((MainActivity)getActivity()).getNavigation();
-                navigation.setSelectedItemId(R.id.navigation_tab);
+                ((AppActivity)getActivity()).setCurrent_drink(order);
+                /* BottomNavigationView navigation = ((MainActivity)getActivity()).getNavigation();
+                navigation.setSelectedItemId(R.id.navigation_tab); */
+
+                ConfirmOrderFragment new_frag = new ConfirmOrderFragment();
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.main_container, new_frag);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
 
             }
         });

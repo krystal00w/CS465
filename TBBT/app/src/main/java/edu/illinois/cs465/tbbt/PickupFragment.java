@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.view.View.OnClickListener;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import java.util.ArrayList;
@@ -34,7 +32,7 @@ public class PickupFragment extends Fragment {
 
 //        // pass arguments to a string array [drinks]
 //        if (getArguments() != null){
-//            drinks = getArguments().getStringArrayList(MainActivity.LISTVIEW_DATA);
+//            drinks = getArguments().getStringArrayList(AppActivity.LISTVIEW_DATA);
 //        }
 
     }
@@ -46,7 +44,7 @@ public class PickupFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_pickup, container, false);
 
         ListView listView = (ListView) view.findViewById(R.id.ready_list);
-        ArrayList<Drink> ready = ((MainActivity)getActivity()).getReady();
+        ArrayList<Drink> ready = ((AppActivity)getActivity()).getReady();
 
         String[] ready_drinks = new String[ready.size()];
         for(int i = 0; i < ready.size(); i++){
@@ -67,8 +65,7 @@ public class PickupFragment extends Fragment {
         final Button pickup = view.findViewById(R.id.pickup);
         pickup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-//                ((MainActivity)getActivity()).incStage();
-                ((MainActivity)getActivity()).pickUpDrinks();
+                ((AppActivity)getActivity()).pickUpDrinks();
 
                 // Code here executes on main thread after user presses button
                 TabFragment new_frag = new TabFragment();
