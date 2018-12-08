@@ -41,7 +41,7 @@ public class CheckInFragment extends Fragment {
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
-                ((MainActivity) getActivity()).setCheckedIn(true);
+                ((AppActivity) getActivity()).setCheckedIn(true);
             }
         });
 

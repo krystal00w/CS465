@@ -7,55 +7,46 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:background="@color/grey"
+    tools:context=".AppActivity">
 
     <TextView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="Show this QR to a bartender in the pick-up area to pick up your drink."
         android:textAlignment="center"
-        android:textSize="18sp" />
-
+        android:textColor="@android:color/black"
+        android:textSize="19sp" />
 
     <ImageView
         android:id="@+id/imageQR"
         android:layout_width="240dp"
-        android:layout_height="265dp"
+        android:layout_height="235dp"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/qrcode" />
+        android:src="@drawable/qr_code" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        />
-
-    <!--<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Drinks Ready:"
-
-        android:textSize="18dp"
-        android:textStyle="bold"
-
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:paddingBottom="20dp"
-        android:text="blank_string_for_ready"
-        />-->
+    <ListView
+        android:id="@+id/ready_list"
+        android:layout_width="240dp"
+        android:layout_height="116dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="18dp"
+        android:scrollbars="horizontal|vertical"
+        android:scrollingCache="true"
+        android:smoothScrollbar="true"
+        android:textColor="@android:color/white"
+        android:textSize="21sp" />
 
     <Button
         android:id="@+id/pickup"
-        android:layout_width="100dp"
+        android:layout_width="160dp"
         android:layout_height="45dp"
-        android:textSize="19dp"
-        android:background="@drawable/rounded_button_dark"
+        android:textSize="19sp"
+        android:background="@drawable/rounded_button_light"
         android:text="Pick Up"
+        android:layout_marginBottom="25dp"
         android:textColor="@android:color/white"
         android:textAllCaps="false" />
 

@@ -16,6 +16,8 @@ package edu.illinois.cs465.tbbt;
  * limitations under the License.
  */
 
+import android.nfc.Tag;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
@@ -28,10 +30,12 @@ import android.widget.TextView;
 /**
  * Provide views to RecyclerView with data from mDataSet.
  */
-public class menuRecyclerViewAdapter extends RecyclerView.Adapter<menuRecyclerViewAdapter.ViewHolder> {
-    private static final String TAG = "menuRecyclerViewAdapter";
+public class beerRecyclerViewAdapter extends RecyclerView.Adapter<beerRecyclerViewAdapter.ViewHolder> {
+    private static final String TAG = "beerRecyclerViewAdapter";
 
-    private String[] mDataSet;
+    public static String[] mDataSet;
+    public static double[] prices;
+    public static double[] upgrades;
     private static FragmentActivity activity_fragment;
 
     /**
@@ -48,26 +52,11 @@ public class menuRecyclerViewAdapter extends RecyclerView.Adapter<menuRecyclerVi
                 @Override
                 public void onClick(View v) {
                     Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
+                    Log.d(TAG, mDataSet[0]);
 
                     FragmentTransaction ft = (activity_fragment).getSupportFragmentManager().beginTransaction();
-                    switch(getAdapterPosition()) {
-                        case 0:
-                            DealsFragment frag_deals = new DealsFragment();
-                            ft.replace(R.id.main_container, frag_deals).addToBackStack(null).commit();
-                            break;
-                        case 1:
-                            beerListMenuFragment frag_beer = new beerListMenuFragment();
-                            ft.replace(R.id.main_container, frag_beer).addToBackStack(null).commit();
-                            break;
-                        case 2:
-                            shotsListMenuFragment frag_shots = new shotsListMenuFragment();
-                            ft.replace(R.id.main_container, frag_shots).addToBackStack(null).commit();
-                            break;
-                        case 3:
-                            cocktailsListMenuFragment frag_cocktail = new cocktailsListMenuFragment();
-                            ft.replace(R.id.main_container, frag_cocktail).addToBackStack(null).commit();
-                            break;
-                    }
+                    int idx = getAdapterPosition();
+                    passDrinkToOrder(ft, mDataSet[idx], prices[idx], upgrades[idx]);
                 }
             });
             textView = v.findViewById(R.id.menuItemText);
@@ -77,14 +66,18 @@ public class menuRecyclerViewAdapter extends RecyclerView.Adapter<menuRecyclerVi
             return textView;
         }
     }
+    // END_INCLUDE(recyclerViewSampleViewHolder)
 
     /**
      * Initialize the dataset of the Adapter.
      *
      * @param dataSet String[] containing the data to populate views to be used by RecyclerView.
      */
-    public menuRecyclerViewAdapter(String[] dataSet, FragmentActivity fa) {
+    public beerRecyclerViewAdapter(String[] dataSet, double[] prices, double[] upgrades, FragmentActivity fa) {
+        Log.d(TAG, "Beer Recycler Created");
         mDataSet = dataSet;
+        this.prices = prices;
+        this.upgrades = upgrades;
         this.activity_fragment = fa;
     }
 
@@ -111,5 +104,21 @@ public class menuRecyclerViewAdapter extends RecyclerView.Adapter<menuRecyclerVi
     @Override
     public int getItemCount() {
         return mDataSet.length;
+    }
+
+    private static void passDrinkToOrder(FragmentTransaction ft, String drink_name, double price, double upgrade) {
+        /**if (((MainActivity) getActivity()).getStage() == 0){
+         ((MainActivity) getActivity()).setDrinkOneName(drink_name);
+         }
+         else if (((MainActivity) getActivity()).getStage() == 1){
+         ((MainActivity) getActivity()).setDrinkTwoName(drink_name);
+         }**/
+        OrderFragment new_frag = new OrderFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("name", drink_name);
+        bundle.putDouble("base", price);
+        bundle.putDouble("upgrade", upgrade);
+        new_frag.setArguments(bundle);
+        ft.replace(R.id.main_container, new_frag).addToBackStack(null).commit();
     }
 }

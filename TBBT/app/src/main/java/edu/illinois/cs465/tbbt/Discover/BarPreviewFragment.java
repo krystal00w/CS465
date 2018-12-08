@@ -1,7 +1,5 @@
 package edu.illinois.cs465.tbbt.Discover;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
 
-import edu.illinois.cs465.tbbt.MainActivity;
 import edu.illinois.cs465.tbbt.R;
 
 public class BarPreviewFragment extends Fragment {
@@ -24,7 +21,7 @@ public class BarPreviewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = null;
-        //((MainActivity)getActivity()).setActive(this);
+        //((AppActivity)getActivity()).setActive(this);
         bar = getArguments().getString("bar");
         switch (bar) {
             case "legends":
