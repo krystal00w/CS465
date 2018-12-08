@@ -212,7 +212,6 @@ public class TabFragment extends Fragment {
         super.onResume();
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.text_tab);
         mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
-        //getActivity().getActionBar().setTitle(R.string.text_tab);
     }
 
 }
