@@ -19,7 +19,7 @@
             <RelativeLayout
                 android:id="@+id/legends_deal1"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:background="@drawable/underline_frame"
                 android:clickable="true">
                 <LinearLayout
@@ -32,6 +32,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:paddingStart="5dp"
+                        android:fontFamily="@font/opensans_reg"
                         android:text="@string/legends_deal1"
                         android:textColor="@android:color/black"
                         android:textSize="20sp">
@@ -45,6 +46,7 @@
                             android:layout_height="match_parent"
                             android:paddingStart="5dp"
                             android:text="@string/legends_name"
+                            android:fontFamily="@font/opensans_reg"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:gravity="center_vertical"
@@ -64,23 +66,27 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:text="x7"
+                                android:fontFamily="@font/opensans_reg"
                                 android:textSize="20sp"
                                 android:gravity="center_vertical"/>
                         </LinearLayout>
                     </RelativeLayout>
 
                 </LinearLayout>
+
                 <ImageView
                     android:id="@+id/deal1_image"
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/mi_cocktail"/>
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/mi_cocktail" />
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/lion_deal"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:background="@drawable/underline_frame"
                 android:clickable="true">
                 <LinearLayout
@@ -92,6 +98,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:fontFamily="@font/opensans_reg"
                         android:paddingStart="5dp"
                         android:text="@string/lion_deal"
                         android:textColor="@android:color/black"
@@ -109,6 +116,7 @@
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:gravity="center_vertical"
+                            android:fontFamily="@font/opensans_reg"
                             android:textAllCaps="true"
                             android:textStyle="bold">
                         </TextView>
@@ -126,22 +134,26 @@
                                 android:layout_height="match_parent"
                                 android:text="x3"
                                 android:textSize="20sp"
+                                android:fontFamily="@font/opensans_reg"
                                 android:gravity="center_vertical"/>
                         </LinearLayout>
                     </RelativeLayout>
 
                 </LinearLayout>
+
                 <ImageView
                     android:id="@+id/deal3_image"
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/bar_logo_lion"/>
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/bar_logo_lion" />
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/legends_deal2"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:background="@drawable/underline_frame"
                 android:clickable="true">
                 <LinearLayout
@@ -156,6 +168,7 @@
                         android:paddingStart="5dp"
                         android:text="@string/legends_deal2"
                         android:textColor="@android:color/black"
+                        android:fontFamily="@font/opensans_reg"
                         android:textSize="20sp">
                     </TextView>
                     <RelativeLayout
@@ -170,6 +183,7 @@
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:gravity="center_vertical"
+                            android:fontFamily="@font/opensans_reg"
                             android:textAllCaps="true"
                             android:textStyle="bold">
                         </TextView>
@@ -186,18 +200,22 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:text="x1"
+                                android:fontFamily="@font/opensans_reg"
                                 android:textSize="20sp"
                                 android:gravity="center_vertical"/>
                         </LinearLayout>
                     </RelativeLayout>
 
                 </LinearLayout>
+
                 <ImageView
                     android:id="@+id/deal2_image"
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/mi_beer"/>
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/mi_beer" />
             </RelativeLayout>
             <!--Scroll testing
             <RelativeLayout

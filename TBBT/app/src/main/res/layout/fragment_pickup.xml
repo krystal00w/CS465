@@ -11,13 +11,14 @@
     tools:context=".AppActivity">
 
     <TextView
-        android:layout_width="300dp"
+        android:layout_width="312dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/opensans_reg"
         android:text="Show this QR to a bartender in the pick-up area to pick up your drink."
         android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="19sp" />
+        android:textSize="17sp" />
 
     <ImageView
         android:id="@+id/imageQR"
@@ -37,6 +38,7 @@
         android:scrollingCache="true"
         android:smoothScrollbar="true"
         android:textColor="@android:color/white"
+        android:fontFamily="@font/opensans_reg"
         android:textSize="21sp" />
 
     <Button
@@ -44,6 +46,7 @@
         android:layout_width="160dp"
         android:layout_height="45dp"
         android:textSize="19sp"
+        android:fontFamily="@font/opensans_reg"
         android:background="@drawable/rounded_button_light"
         android:text="Pick Up"
         android:layout_marginBottom="25dp"

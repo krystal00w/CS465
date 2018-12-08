@@ -33,6 +33,7 @@
                 android:paddingRight="20dp"
                 android:paddingBottom="10dp"
                 android:text="Tito's"
+                android:fontFamily="@font/opensans_reg"
                 android:textColor="@android:color/black"
                 android:textSize="28sp" />
 
@@ -48,6 +49,7 @@
                     android:paddingRight="20dp"
                     android:paddingTop="7dp"
                     android:text="Quantity"
+                    android:fontFamily="@font/opensans_reg"
                     android:textColor="@android:color/black"
                     android:textSize="24sp" />
 
@@ -59,6 +61,7 @@
                     android:inputType="number"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:fontFamily="@font/opensans_reg"
                     android:text="1"
                     android:textColor="@color/dark_blue"
                     android:textSize="20sp" />
@@ -83,6 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Size"
+                android:fontFamily="@font/opensans_reg"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
@@ -106,6 +110,7 @@
                     android:text="Single"
                     android:textColor="@color/dark_blue"
                     android:textSize="21sp"
+                    android:fontFamily="@font/opensans_reg"
                     android:checked="true"/>
 
                 <RadioButton android:id="@+id/radio_double"
@@ -113,6 +118,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/dark_blue"
                     android:text="Double"
+                    android:fontFamily="@font/opensans_reg"
                     android:textSize="21sp"/>
             </RadioGroup>
 
@@ -123,6 +129,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:textSize="24sp"
+                android:fontFamily="@font/opensans_reg"
                 android:textColor="@android:color/black"
                 android:text="Style" />
 
@@ -134,6 +141,7 @@
                 android:layout_marginRight="20dp"
                 android:paddingRight="10dp"
                 android:textColor="@android:color/darker_gray"
+                android:fontFamily="@font/opensans_reg"
                 android:textSize="24sp"
                 android:hint="neat/on the rocks"/>
         </LinearLayout>
@@ -145,6 +153,7 @@
         android:layout_height="match_parent">
 
         <Button
+
             android:id="@+id/submit_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -152,6 +161,7 @@
             android:textColor="@android:color/white"
             android:background="@color/dark_blue"
             android:textSize="30sp"
+            android:fontFamily="@font/opensans_reg"
             android:layout_gravity="bottom"/>
 
 
