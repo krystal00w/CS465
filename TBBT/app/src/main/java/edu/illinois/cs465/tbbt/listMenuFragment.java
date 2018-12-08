@@ -112,9 +112,9 @@ public class listMenuFragment extends Fragment {
 
         mImagesData = new int[DATASET_COUNT];
         mImagesData[0] = R.drawable.star;
-        mImagesData[1] = R.drawable.beer;
+        mImagesData[1] = R.drawable.mi_beer;
         mImagesData[2] = R.drawable.star;
-        mImagesData[3] = R.drawable.cocktail;
+        mImagesData[3] = R.drawable.mi_cocktail;
     }
 
 

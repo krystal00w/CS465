@@ -74,7 +74,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/cocktail"/>
+                    android:src="@drawable/mi_cocktail"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/lion_deal"
@@ -135,7 +135,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/lion_logo"/>
+                    android:src="@drawable/bar_logo_lion"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/legends_deal2"
@@ -196,7 +196,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/beer"/>
+                    android:src="@drawable/mi_beer"/>
             </RelativeLayout>
             <!--Scroll testing
             <RelativeLayout
@@ -260,7 +260,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/lion_logo"/>
+                    android:src="@drawable/bar_logo_lion"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/lion3"
@@ -323,7 +323,7 @@
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/lion_logo"/>
+                    android:src="@drawable/bar_logo_lion"/>
             </RelativeLayout>
             -->
 
