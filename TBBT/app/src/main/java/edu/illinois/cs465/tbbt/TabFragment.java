@@ -1,5 +1,7 @@
 package edu.illinois.cs465.tbbt;
 
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -7,16 +9,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+
 import java.util.ArrayList;
+
 import edu.illinois.cs465.tbbt.OrderMemory.Drink;
 
 
 public class TabFragment extends Fragment {
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeDetector mShakeDetector;
+
     public TabFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(Bundle saveInstanceState) {
+        super.onCreate(saveInstanceState);
     }
 
     @Override

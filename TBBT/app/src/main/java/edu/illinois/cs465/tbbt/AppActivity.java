@@ -1,11 +1,15 @@
 package edu.illinois.cs465.tbbt;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,6 +21,9 @@ import java.util.List;
 import edu.illinois.cs465.tbbt.Discover.DiscoverFragment;
 import edu.illinois.cs465.tbbt.OrderMemory.Drink;
 
+import static android.support.v4.content.ContextCompat.getSystemService;
+import static java.security.AccessController.getContext;
+
 public class AppActivity extends AppCompatActivity {
     final Fragment fragment_check_in = new CheckInFragment();
     final Fragment fragment_order = new OrderFragment();
@@ -26,6 +33,11 @@ public class AppActivity extends AppCompatActivity {
     final Fragment fragment_empty_tab = new EmptyTabFragment();
     final FragmentManager fm = getSupportFragmentManager();
     BottomNavigationView navigation = null;
+
+    // The following are used for the shake detection
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeDetector mShakeDetector;
 
     // Check in once only
     private boolean checkedIn = false;
@@ -116,6 +128,33 @@ public class AppActivity extends AppCompatActivity {
         toolbar.setTitle(R.string.text_order);
 
         fm.beginTransaction().replace(R.id.main_container,fragment_check_in).commit();
+
+        // ShakeDetector initialization
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager
+                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector();
+        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+
+            @Override
+            public void onShake(int count) {
+                /*
+                 * The following method, "handleShakeEvent(count):" is a stub //
+                 * method you would use to setup whatever you want done once the
+                 * device has been shook.
+                 */
+                handleShakeEvent();
+            }
+        });
+    }
+
+    private void handleShakeEvent() {
+        Log.d("Shake Event", "Shake!");
+        if(being_made.size() > 0){
+            Drink d = being_made.get(0);
+            being_made.remove(0);
+            ready.add(d);
+        }
     }
 
     // Bottom navigation bar fragment selection
