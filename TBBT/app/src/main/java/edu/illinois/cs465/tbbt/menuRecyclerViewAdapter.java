@@ -16,6 +16,7 @@ package edu.illinois.cs465.tbbt;
  * limitations under the License.
  */
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
@@ -23,6 +24,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -32,6 +34,8 @@ public class menuRecyclerViewAdapter extends RecyclerView.Adapter<menuRecyclerVi
     private static final String TAG = "menuRecyclerViewAdapter";
 
     private String[] mDataSet;
+    private int[] mImagesData;
+
     private static FragmentActivity activity_fragment;
 
     /**
@@ -39,6 +43,7 @@ public class menuRecyclerViewAdapter extends RecyclerView.Adapter<menuRecyclerVi
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textView;
+        private final ImageView imageView;
 
         public ViewHolder(View v) {
 
@@ -71,11 +76,11 @@ public class menuRecyclerViewAdapter extends RecyclerView.Adapter<menuRecyclerVi
                 }
             });
             textView = v.findViewById(R.id.menuItemText);
+            imageView = v.findViewById(R.id.menuItemImage);
         }
 
-        public TextView getTextView() {
-            return textView;
-        }
+        public TextView getTextView() { return textView; }
+        public ImageView getImageView() { return imageView; }
     }
 
     /**
@@ -83,8 +88,9 @@ public class menuRecyclerViewAdapter extends RecyclerView.Adapter<menuRecyclerVi
      *
      * @param dataSet String[] containing the data to populate views to be used by RecyclerView.
      */
-    public menuRecyclerViewAdapter(String[] dataSet, FragmentActivity fa) {
+    public menuRecyclerViewAdapter(String[] dataSet, int[] imagesData, FragmentActivity fa) {
         mDataSet = dataSet;
+        mImagesData = imagesData;
         this.activity_fragment = fa;
     }
 
@@ -106,6 +112,7 @@ public class menuRecyclerViewAdapter extends RecyclerView.Adapter<menuRecyclerVi
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
         viewHolder.getTextView().setText(mDataSet[position]);
+        viewHolder.getImageView().setImageResource(mImagesData[position]);
     }
     // Return the size of your dataset (invoked by the layout manager)
     @Override

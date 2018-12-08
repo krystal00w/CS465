@@ -8,7 +8,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="10dp">
 
         <ScrollView
             android:id="@+id/pager"
@@ -28,7 +29,7 @@
                         android:layout_width="150dp"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"
-                        android:src="@drawable/lion_logo" />
+                        android:src="@drawable/bar_logo_lion" />
                     <LinearLayout
                         android:layout_alignParentLeft="true"
                         android:layout_toStartOf="@id/logo"
@@ -189,7 +190,7 @@
                             android:layout_width="95dp"
                             android:layout_height="95dp"
                             android:layout_alignParentEnd="true"
-                            android:src="@drawable/lion_logo"/>
+                            android:src="@drawable/bar_logo_lion"/>
                     </RelativeLayout>
 
                 </LinearLayout>

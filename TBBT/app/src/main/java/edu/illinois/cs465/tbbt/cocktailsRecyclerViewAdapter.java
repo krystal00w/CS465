@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -33,6 +34,7 @@ public class cocktailsRecyclerViewAdapter extends RecyclerView.Adapter<cocktails
     private static final String TAG = "CocktailViewAdapter";
 
     public static String[] mDataSet;
+    private static int[] mImagesData;
     public static double[] prices;
     public static double[] upgrades;
     private static FragmentActivity activity_fragment;
@@ -42,6 +44,7 @@ public class cocktailsRecyclerViewAdapter extends RecyclerView.Adapter<cocktails
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textView;
+        private final ImageView imageView;
 
         public ViewHolder(View v) {
 
@@ -55,15 +58,17 @@ public class cocktailsRecyclerViewAdapter extends RecyclerView.Adapter<cocktails
 
                     FragmentTransaction ft = (activity_fragment).getSupportFragmentManager().beginTransaction();
                     int idx = getAdapterPosition();
-                    passDrinkToOrder(ft, mDataSet[idx], prices[idx], upgrades[idx]);
+                    passDrinkToOrder(ft, mDataSet[idx], mImagesData[idx], prices[idx], upgrades[idx]);
                 }
             });
             textView = v.findViewById(R.id.menuItemText);
+            imageView = v.findViewById(R.id.menuItemImage);
         }
 
         public TextView getTextView() {
             return textView;
         }
+        public ImageView getImageView() { return imageView; }
     }
     // END_INCLUDE(recyclerViewSampleViewHolder)
 
@@ -72,9 +77,10 @@ public class cocktailsRecyclerViewAdapter extends RecyclerView.Adapter<cocktails
      *
      * @param dataSet String[] containing the data to populate views to be used by RecyclerView.
      */
-    public cocktailsRecyclerViewAdapter(String[] dataSet, double[] prices, double[] upgrades, FragmentActivity fa) {
+    public cocktailsRecyclerViewAdapter(String[] dataSet, int[] imagesData, double[] prices, double[] upgrades, FragmentActivity fa) {
         Log.d(TAG, "Cocktail Recycler Created");
         mDataSet = dataSet;
+        mImagesData = imagesData;
         this.prices = prices;
         this.upgrades = upgrades;
         this.activity_fragment = fa;
@@ -98,6 +104,7 @@ public class cocktailsRecyclerViewAdapter extends RecyclerView.Adapter<cocktails
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
         viewHolder.getTextView().setText(mDataSet[position]);
+        viewHolder.getImageView().setImageResource(mImagesData[position]);
     }
     // Return the size of your dataset (invoked by the layout manager)
     @Override
@@ -105,16 +112,11 @@ public class cocktailsRecyclerViewAdapter extends RecyclerView.Adapter<cocktails
         return mDataSet.length;
     }
 
-    private static void passDrinkToOrder(FragmentTransaction ft, String drink_name, double price, double upgrade) {
-        /**if (((MainActivity) getActivity()).getStage() == 0){
-         ((MainActivity) getActivity()).setDrinkOneName(drink_name);
-         }
-         else if (((MainActivity) getActivity()).getStage() == 1){
-         ((MainActivity) getActivity()).setDrinkTwoName(drink_name);
-         }**/
+    private static void passDrinkToOrder(FragmentTransaction ft, String drink_name, int img_id, double price, double upgrade) {
         OrderFragment new_frag = new OrderFragment();
         Bundle bundle = new Bundle();
         bundle.putString("name", drink_name);
+        bundle.putInt("img", img_id);
         bundle.putDouble("base", price);
         bundle.putDouble("upgrade", upgrade);
         new_frag.setArguments(bundle);

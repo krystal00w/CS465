@@ -66,8 +66,6 @@ public class PickupFragment extends Fragment {
         pickup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 ((AppActivity)getActivity()).pickUpDrinks();
-
-                // Code here executes on main thread after user presses button
                 TabFragment new_frag = new TabFragment();
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.main_container, new_frag);

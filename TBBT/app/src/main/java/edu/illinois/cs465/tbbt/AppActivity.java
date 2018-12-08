@@ -1,5 +1,6 @@
 package edu.illinois.cs465.tbbt;
 
+
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
@@ -16,10 +17,10 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import edu.illinois.cs465.tbbt.Discover.DiscoverFragment;
 import edu.illinois.cs465.tbbt.OrderMemory.Drink;
+import edu.illinois.cs465.tbbt.OrderMemory.ShakeDetector;
 
 import static android.support.v4.content.ContextCompat.getSystemService;
 import static java.security.AccessController.getContext;
@@ -67,14 +68,15 @@ public class AppActivity extends AppCompatActivity {
         return picked_up;
     }
 
-    public void placeOrder(Drink drink){
-        int bm_size = being_made.size();
-        int x = (int)Math.floor((Math.random() * (bm_size + 1)));
-        while(being_made.size() > x){
+    public void moveSingleDrinkToReady() {
+        if (being_made.size() > 0) {
             Drink d = being_made.get(0);
             being_made.remove(0);
             ready.add(d);
         }
+    }
+
+    public void placeOrder(Drink drink){
         being_made.add(drink);
     }
 
@@ -169,7 +171,7 @@ public class AppActivity extends AppCompatActivity {
                     if (!checkedIn)
                         fm.beginTransaction().replace(R.id.main_container, fragment_check_in).commit();
                     else
-                        fm.beginTransaction().replace(R.id.main_container, new listMenuFragment()).commit();
+                        fm.beginTransaction().replace(R.id.main_container, new menuFragment()).commit();
                     return true;
 
                 case R.id.navigation_tab:
