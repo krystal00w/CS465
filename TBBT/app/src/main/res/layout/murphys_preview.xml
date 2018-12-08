@@ -28,8 +28,13 @@
                         android:id="@+id/logo"
                         android:layout_width="150dp"
                         android:layout_height="match_parent"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/bar_logo_murphys" />
+
                     <LinearLayout
                         android:layout_alignParentLeft="true"
                         android:layout_toStartOf="@id/logo"
@@ -46,6 +51,7 @@
                                 android:layout_height="fill_parent"
                                 android:layout_weight="1"
                                 android:text="Hours:"
+                                android:fontFamily="@font/opensans_reg"
                                 android:textSize="25sp"
                                 android:textColor="@android:color/black"
                                 android:layout_marginLeft="5dp"/>
@@ -54,7 +60,8 @@
                                 android:layout_height="fill_parent"
                                 android:layout_weight="1"
                                 android:text="@string/legends_hours"
-                                android:textSize="25sp"
+                                android:textSize="22sp"
+                                android:fontFamily="@font/opensans_reg"
                                 android:textColor="@android:color/black"
                                 android:layout_marginLeft="5dp"/>
                         </LinearLayout>
@@ -65,6 +72,7 @@
                             android:layout_weight="1"
                             android:text="@string/murphys_addr"
                             android:textSize="25sp"
+                            android:fontFamily="@font/opensans_reg"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="5dp"/>
 
@@ -87,6 +95,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Pool"
+                            android:fontFamily="@font/opensans_reg"
                             android:textSize="20sp"
                             android:textColor="@android:color/black"/>
                     </LinearLayout>
@@ -103,6 +112,7 @@
                             android:layout_height="wrap_content"
                             android:text="Juke Box"
                             android:textSize="20sp"
+                            android:fontFamily="@font/opensans_reg"
                             android:textColor="@android:color/black"/>
                     </LinearLayout>
                     <LinearLayout
@@ -118,6 +128,7 @@
                             android:layout_height="wrap_content"
                             android:text="Sports Viewing"
                             android:textSize="20sp"
+                            android:fontFamily="@font/opensans_reg"
                             android:textColor="@android:color/black"/>
                     </LinearLayout>
                     <LinearLayout
@@ -132,6 +143,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:textSize="20sp"
+                                android:fontFamily="@font/opensans_reg"
                                 android:textColor="@android:color/black"
                                 android:text="Pub"/>
                             <SeekBar
@@ -145,6 +157,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:textSize="20sp"
+                                android:fontFamily="@font/opensans_reg"
                                 android:textColor="@android:color/black"
                                 android:text="Club"/>
                         </LinearLayout>
@@ -160,6 +173,7 @@
                     android:text="Deals:"
                     android:textSize="25sp"
                     android:textColor="@android:color/black"
+                    android:fontFamily="@font/opensans_reg"
                     android:background="@drawable/underline_frame"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -169,8 +183,9 @@
                         android:paddingStart="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="75dp"
+                        android:fontFamily="@font/opensans_reg"
                         android:text="None"
-                        android:textSize="25sp"
+                        android:textSize="21sp"
                         android:gravity="center_vertical"
                         android:textColor="@android:color/black"
                         android:background="@drawable/underline_frame"/>

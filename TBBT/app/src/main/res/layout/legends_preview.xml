@@ -28,6 +28,10 @@
                         android:id="@+id/logo"
                         android:layout_width="150dp"
                         android:layout_height="match_parent"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
                         android:layout_alignParentEnd="true"
                         android:src="@drawable/bar_logo_legends" />
                     <LinearLayout
@@ -47,14 +51,16 @@
                                 android:layout_weight="1"
                                 android:text="Hours:"
                                 android:textSize="25sp"
+                                android:fontFamily="@font/opensans_reg"
                                 android:textColor="@android:color/black"
                                 android:layout_marginLeft="5dp"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="fill_parent"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/opensans_reg"
                                 android:text="@string/legends_hours"
-                                android:textSize="25sp"
+                                android:textSize="21sp"
                                 android:textColor="@android:color/black"
                                 android:layout_marginLeft="5dp"/>
                         </LinearLayout>
@@ -64,6 +70,7 @@
                             android:gravity="center_vertical"
                             android:layout_weight="1"
                             android:text="@string/legends_addr"
+                            android:fontFamily="@font/opensans_reg"
                             android:textSize="25sp"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="5dp"/>
@@ -82,12 +89,14 @@
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
+                            android:fontFamily="@font/opensans_reg"
                             android:src="@drawable/checkbox_filled"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Pool"
                             android:textSize="20sp"
+                            android:fontFamily="@font/opensans_reg"
                             android:textColor="@android:color/black"/>
                     </LinearLayout>
                     <LinearLayout
@@ -100,6 +109,7 @@
                             android:src="@drawable/checkbox_empty"/>
                         <TextView
                             android:layout_width="match_parent"
+                            android:fontFamily="@font/opensans_reg"
                             android:layout_height="wrap_content"
                             android:text="Juke Box"
                             android:textSize="20sp"
@@ -116,6 +126,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensans_reg"
                             android:text="Sports Viewing"
                             android:textSize="20sp"
                             android:textColor="@android:color/black"/>
@@ -132,6 +143,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:textSize="20sp"
+                                android:fontFamily="@font/opensans_reg"
                                 android:textColor="@android:color/black"
                                 android:text="Pub"/>
                             <SeekBar
@@ -144,6 +156,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                android:fontFamily="@font/opensans_reg"
                                 android:textSize="20sp"
                                 android:textColor="@android:color/black"
                                 android:text="Club"/>
@@ -159,6 +172,7 @@
                     android:layout_height="wrap_content"
                     android:text="Deals:"
                     android:textSize="25sp"
+                    android:fontFamily="@font/opensans_reg"
                     android:textColor="@android:color/black"
                     android:background="@drawable/underline_frame"/>
                 <LinearLayout
@@ -179,18 +193,21 @@
                                 android:gravity="center_vertical"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:fontFamily="@font/opensans_reg"
                                 android:paddingStart="5dp"
                                 android:text="@string/legends_deal1"
                                 android:textColor="@android:color/black"
-                                android:textSize="25sp"/>
+                                android:textSize="21sp"/>
 
                         </LinearLayout>
+
                         <ImageView
                             android:id="@+id/deal1_image"
-                            android:layout_width="95dp"
-                            android:layout_height="95dp"
+                            android:layout_width="99dp"
+                            android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
-                            android:src="@drawable/mi_cocktail"/>
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/mi_cocktail" />
                     </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -206,18 +223,20 @@
                                 android:gravity="center_vertical"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:fontFamily="@font/opensans_reg"
                                 android:paddingStart="5dp"
                                 android:text="@string/legends_deal2"
                                 android:textColor="@android:color/black"
-                                android:textSize="25sp"/>
+                                android:textSize="21sp"/>
 
                         </LinearLayout>
+
                         <ImageView
                             android:id="@+id/deal2_image"
-                            android:layout_width="95dp"
-                            android:layout_height="95dp"
+                            android:layout_width="97dp"
+                            android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
-                            android:src="@drawable/mi_beer"/>
+                            android:src="@drawable/mi_beer" />
                     </RelativeLayout>
 
                 </LinearLayout>
