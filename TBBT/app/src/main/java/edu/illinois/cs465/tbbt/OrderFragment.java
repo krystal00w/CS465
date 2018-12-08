@@ -37,7 +37,7 @@ public class OrderFragment extends Fragment {
         drink_title.setText(name);
         price.setText(String.format("$ " + "%.2f", base_price));
         RadioButton upgrade = v.findViewById(R.id.radio_double);
-        upgrade.setText("double (+$" + String.format("%.2f", double_price) + ")");
+        upgrade.setText("Double (+$" + String.format("%.2f", double_price) + ")");
 
         final Button placeOrder = v.findViewById(R.id.submit_order);
         placeOrder.setOnClickListener(new View.OnClickListener() {

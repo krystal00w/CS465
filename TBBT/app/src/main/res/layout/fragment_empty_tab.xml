@@ -6,14 +6,10 @@
     tools:context=".EmptyTabFragment">
 
     <TextView
+        style="@style/TextLargeCenter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Your tab is currently empty. Order something now!"
-        android:textSize =  "32sp"
-        android:textColor = "@android:color/black"
-        android:paddingLeft = "40dp"
-        android:paddingRight = "20dp"
-        android:gravity = "center_vertical"/>
+        android:text="Your tab is currently empty. Order something now!" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,13 +17,8 @@
 
         <Button
             android:id="@+id/close_tab"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
             android:text="Close tab"
-            android:textSize="20dp"
-            android:background="@android:color/holo_red_light"
-            android:textColor="@android:color/white" />
+            style="@style/ButtonFlatAccented"/>
     </LinearLayout>
 
 </FrameLayout>
