@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -26,10 +27,13 @@ public class OrderFragment extends Fragment {
         // Inflate the layout for this fragment
         final View v = inflater.inflate(R.layout.fragment_order, container, false);
         final String name = this.getArguments().getString("name");
+        final int img_src = this.getArguments().getInt("img");
+        ImageView header_img = v.findViewById(R.id.drink_image);
         TextView drink_title = v.findViewById(R.id.drink_title);
         TextView price = v.findViewById(R.id.price);
         final double base_price = this.getArguments().getDouble("base");
         final double double_price = this.getArguments().getDouble("upgrade");
+        header_img.setImageResource(img_src);
         drink_title.setText(name);
         price.setText(String.format("$ " + "%.2f", base_price));
         RadioButton upgrade = v.findViewById(R.id.radio_double);
