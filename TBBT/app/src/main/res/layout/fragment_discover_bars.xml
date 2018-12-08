@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/nearby_tabs"
-        android:layout_above="@id/bottom_navigation">
+        android:layout_above="@id/bottom_navigation"
+        android:padding="10dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +47,7 @@
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
                             android:text="Busy"
-                            android:paddingEnd="5dp"
+                            android:paddingEnd="10dp"
                             android:gravity="center"
                             android:textColor="@android:color/holo_orange_dark"
                             android:textSize="20sp"/>
@@ -64,7 +65,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_alignParentEnd="true"
                                 android:text="0.3mi"
-                                android:paddingEnd="5dp"
+                                android:paddingEnd="10dp"
                                 android:gravity="center"
                                 android:textColor="@android:color/black"
                                 android:textSize="20sp"/>
@@ -110,7 +111,7 @@
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
                             android:text="Nearly Empty"
-                            android:paddingEnd="5dp"
+                            android:paddingEnd="10dp"
                             android:gravity="center"
                             android:textColor="@android:color/holo_green_light"
                             android:textSize="20sp"/>
@@ -128,7 +129,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_alignParentEnd="true"
                                 android:text="0.4mi"
-                                android:paddingEnd="5dp"
+                                android:paddingEnd="10dp"
                                 android:gravity="center"
                                 android:textColor="@android:color/black"
                                 android:textSize="20sp"/>
@@ -174,7 +175,7 @@
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
                             android:text="Very Busy"
-                            android:paddingEnd="5dp"
+                            android:paddingEnd="10dp"
                             android:gravity="center"
                             android:textColor="@android:color/holo_red_dark"
                             android:textSize="20sp"/>
@@ -192,7 +193,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_alignParentEnd="true"
                                 android:text="0.4mi"
-                                android:paddingEnd="5dp"
+                                android:paddingEnd="10dp"
                                 android:gravity="center"
                                 android:textColor="@android:color/black"
                                 android:textSize="20sp"/>
