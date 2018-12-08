@@ -1,5 +1,7 @@
 package edu.illinois.cs465.tbbt;
 
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -12,9 +14,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
 import edu.illinois.cs465.tbbt.OrderMemory.Drink;
+import edu.illinois.cs465.tbbt.OrderMemory.ShakeDetector;
+
+import static android.content.Context.SENSOR_SERVICE;
 
 
 public class TabFragment extends Fragment {
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeDetector mShakeDetector;
     public TabFragment() {
         // Required empty public constructor
     }
@@ -23,6 +31,17 @@ public class TabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = null;
+        // ShakeDetector initialization
+        mSensorManager = (SensorManager) getContext().getSystemService(SENSOR_SERVICE);
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector();
+        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+
+            @Override
+            public void onShake(int count) {
+                handleShaking();
+            }
+        });
 
         if (!((AppActivity)getActivity()).getCheckedIn()){
             view = inflater.inflate(R.layout.fragment_not_checked_in, container, false);
@@ -172,11 +191,27 @@ public class TabFragment extends Fragment {
         return view;
     }
 
+    private void handleShaking() {
+        ((AppActivity)getActivity()).moveSingleDrinkToReady();
+        TabFragment new_frag = new TabFragment();
+        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.main_container, new_frag);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onPause() {
+        // Add the following line to unregister the Sensor Manager onPause
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
+    }
+
     @Override
     public void onResume() {
         super.onResume();
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.text_tab);
-        //getActivity().getActionBar().setTitle(R.string.text_tab);
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
     }
 
 }

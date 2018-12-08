@@ -1,5 +1,7 @@
 package edu.illinois.cs465.tbbt;
 
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 
 import edu.illinois.cs465.tbbt.Discover.DiscoverFragment;
 import edu.illinois.cs465.tbbt.OrderMemory.Drink;
+import edu.illinois.cs465.tbbt.OrderMemory.ShakeDetector;
 
 public class AppActivity extends AppCompatActivity {
     final Fragment fragment_check_in = new CheckInFragment();
@@ -54,14 +57,15 @@ public class AppActivity extends AppCompatActivity {
         return picked_up;
     }
 
-    public void placeOrder(Drink drink){
-        int bm_size = being_made.size();
-        int x = (int)Math.floor((Math.random() * (bm_size + 1)));
-        while(being_made.size() > x){
+    public void moveSingleDrinkToReady() {
+        if (being_made.size() > 0) {
             Drink d = being_made.get(0);
             being_made.remove(0);
             ready.add(d);
         }
+    }
+
+    public void placeOrder(Drink drink){
         being_made.add(drink);
     }
 
