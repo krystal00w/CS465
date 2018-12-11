@@ -11,7 +11,8 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:elevation="4dp"
-        android:theme="@style/ActionBarTheme"/>
+        android:theme="@style/ActionBarTheme"
+        app:contentInsetStartWithNavigation="0dp"/>
 
     <!-- Container for the fragment(s) that makeup all of the screens of the app -->
     <include

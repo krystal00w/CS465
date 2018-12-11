@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Theme toggle -->
+    <item android:id="@+id/action_theme_toggle"
+        android:icon="@drawable/ic_brightness_4_white_24dp"
+        app:showAsAction="always" />
+
     <!-- Settings button -->
     <item android:id="@+id/action_settings"
         android:title="Settings"

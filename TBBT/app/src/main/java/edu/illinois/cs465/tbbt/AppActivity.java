@@ -1,5 +1,7 @@
 package edu.illinois.cs465.tbbt;
 
+import android.content.Intent;
+import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.support.annotation.NonNull;
@@ -28,6 +30,8 @@ public class AppActivity extends AppCompatActivity {
     final Fragment fragment_empty_tab = new EmptyTabFragment();
     final FragmentManager fm = getSupportFragmentManager();
     BottomNavigationView navigation = null;
+
+    private boolean lightTheme = true;
 
     // Check in once only
     private boolean checkedIn = false;
@@ -99,6 +103,7 @@ public class AppActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         ready = new ArrayList<>();
         being_made = new ArrayList<>();
         picked_up = new ArrayList<>();
@@ -106,6 +111,7 @@ public class AppActivity extends AppCompatActivity {
         // Sets up the action bar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_chevron_left_white_24dp);
 
         // Sets up the bottom navigation bar
         navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -155,13 +161,29 @@ public class AppActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Fragment fragment_current = fm.findFragmentById(R.id.main_container);
-        if (item.getItemId() == R.id.action_settings && fragment_current != fragment_settings) {
-            fm.beginTransaction().replace(R.id.main_container, fragment_settings).addToBackStack(null).commit();
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                if (fragment_current != fragment_settings)
+                    fm.beginTransaction().replace(R.id.main_container, fragment_settings).addToBackStack(null).commit();
+                return true;
+            case R.id.action_theme_toggle:
+                lightTheme = !lightTheme;
+                if (lightTheme) {
+                    setTheme(R.style.Theme_AppCompat_Light_NoActionBar);
+                } else {
+                    setTheme(R.style.TBBTTheme);
+                }
+                //this.recreate();
+                return true;
         }
-
         // If we got here, the user's action was not recognized, invoke the superclass to handle it.
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        onBackPressed();
+        return true;
     }
 
     /*public void setActive(Fragment frag) {
