@@ -38,7 +38,6 @@ public class CheckInFragment extends Fragment {
                 menuFragment menuFrag = new menuFragment();
                 fragmentTransaction.replace(R.id.main_container, menuFrag);
 
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
                 ((AppActivity) getActivity()).setCheckedIn(true);

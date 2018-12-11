@@ -48,7 +48,6 @@
                         android:layout_gravity="center"
                         android:text="Pick Up"
                         android:textSize="20sp"
-                        android:textColor="@android:color/white"
                         android:textStyle="bold"
                         android:paddingRight="35dp"
                         android:paddingLeft="35dp"

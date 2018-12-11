@@ -45,7 +45,6 @@
         android:layout_width="165dp"
         android:layout_height="43dp"
         android:text="Next"
-        android:fontFamily="@font/opensans_reg"
         android:textSize="19dp"
         android:background="@drawable/rounded_button_dark" />
 

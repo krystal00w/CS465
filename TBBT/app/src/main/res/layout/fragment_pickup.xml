@@ -45,12 +45,8 @@
         android:layout_width="160dp"
         android:layout_height="45dp"
         android:textSize="19sp"
-        android:fontFamily="@font/opensans_reg"
-        android:background="@drawable/rounded_button_light"
         android:text="Pick Up"
-        android:layout_marginBottom="25dp"
-        android:textColor="@android:color/white"
-        android:textAllCaps="false" />
+        style="@style/ButtonStyleRounded" />
 
 
 </LinearLayout>
