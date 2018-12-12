@@ -1,10 +1,18 @@
 package edu.illinois.cs465.tbbt;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -207,11 +215,80 @@ public class TabFragment extends Fragment {
 
     private void handleShaking(int count) {
         ((AppActivity)getActivity()).moveSingleDrinkToReady();
+        createNotification("Your drink is ready, come pick it up!");
         TabFragment new_frag = new TabFragment();
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_container, new_frag);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    private NotificationManager notifManager;
+    public void createNotification(String aMessage) {
+        final int NOTIFY_ID = 1002;
+
+        // There are hardcoding only for show it's just strings
+        String name = "my_package_channel";
+        String id = "my_package_channel_1"; // The user-visible name of the channel.
+        String description = "my_package_first_channel"; // The user-visible description of the channel.
+
+        Intent intent;
+        PendingIntent pendingIntent;
+        NotificationCompat.Builder builder;
+
+        if (notifManager == null) {
+            notifManager =
+                    (NotificationManager) getActivity().getSystemService(((AppCompatActivity) getActivity()).NOTIFICATION_SERVICE);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel mChannel = notifManager.getNotificationChannel(id);
+            if (mChannel == null) {
+                mChannel = new NotificationChannel(id, name, importance);
+                mChannel.setDescription(description);
+                mChannel.enableVibration(true);
+                mChannel.setLightColor(Color.GREEN);
+                mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+                notifManager.createNotificationChannel(mChannel);
+            }
+            builder = new NotificationCompat.Builder(((AppCompatActivity) getActivity()), id);
+            builder.setPriority(Notification.PRIORITY_HIGH);
+            if (Build.VERSION.SDK_INT >= 21) builder.setVibrate(new long[0]);
+
+            intent = new Intent(((AppCompatActivity) getActivity()), AppActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            pendingIntent = PendingIntent.getActivity(((AppCompatActivity) getActivity()), 0, intent, 0);
+
+            builder.setContentTitle(aMessage)  // required
+                    .setSmallIcon(R.drawable.ic_local_bar_white_24dp) // required
+                    .setContentText(this.getString(R.string.app_name))  // required
+                    .setDefaults(Notification.DEFAULT_ALL)
+                    .setAutoCancel(true)
+                    .setContentIntent(pendingIntent)
+                    .setTicker(aMessage)
+                    .setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+        } else {
+
+            builder = new NotificationCompat.Builder(((AppCompatActivity) getActivity()));
+
+            intent = new Intent(((AppCompatActivity) getActivity()), AppActivity.class);
+
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            pendingIntent = PendingIntent.getActivity(((AppCompatActivity) getActivity()), 0, intent, 0);
+            builder.setContentTitle(aMessage)                           // required
+                    .setSmallIcon(R.drawable.ic_local_bar_white_24dp) // required
+                    .setContentText(this.getString(R.string.app_name))  // required
+                    .setDefaults(Notification.DEFAULT_ALL)
+                    .setAutoCancel(true)
+                    .setContentIntent(pendingIntent)
+                    .setTicker(aMessage)
+                    .setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400})
+                    .setPriority(Notification.PRIORITY_HIGH);
+        } // else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+        Notification notification = builder.build();
+        notifManager.notify(NOTIFY_ID, notification);
     }
 
     @Override
